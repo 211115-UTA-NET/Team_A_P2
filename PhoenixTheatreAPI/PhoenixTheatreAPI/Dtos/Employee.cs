@@ -2,12 +2,12 @@
 {
     public class Employee
     {
-        Guid EmployeeId { get; set; }
-        string FirstName { get; set; }
-        string LastName { get; set; }
-        string Username { get; set; }
-        string Password { get; set; }
-        string IsManager { get; set; }
-        int TheatreId { get; set; }
+        public Guid EmployeeId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string IsManager { get; set; }
+        public int TheatreId { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 {
     public class Tickets
     {
-        string TicketType { get; set; }
-        decimal TicketPrice { get; set; }
+        public string TicketType { get; set; }
+        public decimal TicketPrice { get; set; }
     }
 }
