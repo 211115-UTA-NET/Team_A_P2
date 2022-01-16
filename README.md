@@ -11,8 +11,8 @@ Nov 15 2021 Arlington .NET / Richard Hawkins, Nick Escalona
     - good architecture, separation of concerns
     - deployed to Azure App Service
     - use Entity Framework Core for data access, not ADO.NET
-    - DB should be on the cloud and normalized
-    - define the database design in documentation or a SQL script
+    - DB should be on the cloud and normalized - [x]
+    - define the database design in documentation or a SQL script - [x]
     - all DB/network access should be async
     - server-side validation
     - logging of exceptions and other events
