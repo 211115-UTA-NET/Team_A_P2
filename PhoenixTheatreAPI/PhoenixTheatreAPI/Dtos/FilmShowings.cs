@@ -1,14 +1,16 @@
-﻿namespace PhoenixTheatreAPI.Dtos
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace PhoenixTheatreAPI.Dtos
 {
     public class FilmShowings
     {
-        public string FilmName { get; set; }
-        public string FilmRating { get; set; }
-        public string Genre { get; set; }
-        public string FilmDescription { get; set; }
-        public int FilmDuration { get; set; }
-        public DateOnly ShowDate { get; set; }
-        public TimeOnly ShowTime { get; set; }
+        public int FilmShowingsId { get; set; }
+        public int TheatreId { get; set; }
+        public int FilmId { get; set; }
+        public DateTime ShowDate { get; set; }
+        public DateTime ShowTime { get; set; }
         public int TicketsAvailable { get; set; }
+        public TheatreFilms TheatreFilms { get; set; }
     }
 }
