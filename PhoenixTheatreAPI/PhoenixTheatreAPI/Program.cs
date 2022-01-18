@@ -1,4 +1,11 @@
+using PhoenixTheatreAPI.Data;
+using PhoenixTheatreAPI.Services;
+
 var builder = WebApplication.CreateBuilder(args);
+
+string connectionString = builder.Configuration.GetConnectionString("ConnectionStringPTDB");
+
+builder.Services.AddSqlServer<PhoenixTheatreContext>(connectionString);
 
 // Add services to the container.
 
@@ -6,6 +13,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<PhoenixTheatreService>();
 
 var app = builder.Build();
 
