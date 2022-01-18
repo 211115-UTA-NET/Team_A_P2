@@ -85,8 +85,8 @@ CREATE TABLE FilmShowings
 	FilmShowingsId INT IDENTITY(1,1) PRIMARY KEY,
 	TheatreId INT FOREIGN KEY REFERENCES Theatre(TheatreId),
 	FilmId INT FOREIGN KEY REFERENCES TheatreFilms(FilmId),
-	ShowDate DATE,
-	Showtime TIME,
+	ShowDate DATETIME,
+	Showtime DATETIME,
 	TicketsAvailable INT NOT NULL,
 );
 
