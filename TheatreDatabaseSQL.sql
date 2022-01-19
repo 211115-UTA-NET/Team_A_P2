@@ -50,7 +50,8 @@ CREATE TABLE Theatre
 CREATE TABLE Employee
 (
 	EmployeeId UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
-	EmployeeName NVARCHAR(100) NOT NULL,
+	FirstName NVARCHAR(100) NOT NULL,
+	LastName NVARCHAR(100) NOT NULL,
 	Username NVARCHAR(100) NOT NULL UNIQUE,
 	UserPassword NVARCHAR(200) NOT NULL,
 	IsManager NVARCHAR(3) NOT NULL,
@@ -84,8 +85,8 @@ CREATE TABLE FilmShowings
 	FilmShowingsId INT IDENTITY(1,1) PRIMARY KEY,
 	TheatreId INT FOREIGN KEY REFERENCES Theatre(TheatreId),
 	FilmId INT FOREIGN KEY REFERENCES TheatreFilms(FilmId),
-	ShowDate DATE,
-	Showtime TIME,
+	ShowDate DATETIME,
+	Showtime DATETIME,
 	TicketsAvailable INT NOT NULL,
 );
 
@@ -124,16 +125,17 @@ VALUES
 
 INSERT INTO Employee
 (
-	EmployeeName,
+	FirstName,
+	LastName,
 	Username,
 	UserPassword,
 	IsManager,
 	TheatreId
 )
 VALUES
-	('Jane Doe', 'janed', 'p@ssword1', 'yes', 1),
-	('Tim Johnson', 'tjohnson', 'p@ssword1', 'no', 1),
-	('Sam Hall', 'shall', 'p@ssword1', 'no', 1);
+	('Jane', 'Doe', 'janed', 'p@ssword1', 'yes', 1),
+	('Tim', 'Johnson', 'tjohnson', 'p@ssword1', 'no', 1),
+	('Sam', 'Hall', 'shall', 'p@ssword1', 'no', 1);
 
 INSERT INTO Tickets
 (
