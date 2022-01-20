@@ -43,6 +43,7 @@ jobs:
           
       - name: Test Coverage
         run: |
+          .\.sonar\scanner\dotnet-sonarscanner begin /d:sonar.cs.opencover.reportsPaths="D:\a\Team_A_P2\Team_A_P2\PhoenixTheatreAPI\PhoenixTheatreApiTests\coverage.cobertura.xml"
           cd PhoenixTheatreAPI/PhoenixTheatreApiTests/
           dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura 
           
