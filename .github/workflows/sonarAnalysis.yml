@@ -41,12 +41,6 @@ jobs:
         with:
           dotnet-version: 6.0.x
           
-      - name: Test Coverage
-        run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /d:sonar.cs.opencover.reportsPaths="D:\a\Team_A_P2\Team_A_P2\PhoenixTheatreAPI\PhoenixTheatreApiTests\coverage.cobertura.xml"
-          cd PhoenixTheatreAPI/PhoenixTheatreApiTests/
-          dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura 
-          
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
