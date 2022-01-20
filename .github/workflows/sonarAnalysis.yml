@@ -48,7 +48,7 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"211115-UTA-NET_Team_A_P2" /o:"211115-uta-net" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths="D:\a\Team_A_P2\Team_A_P2\PhoenixTheatreAPI\PhoenixTheatreApiTests\coverage.cobertura.xml"
-          dotnet build ./PhoenixTheatreAPI/PhoenixTheatreAPI.sln
           cd PhoenixTheatreAPI/PhoenixTheatreApiTests/
-          dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura 
+          dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura
+          dotnet build ./PhoenixTheatreAPI/PhoenixTheatreAPI.sln
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
