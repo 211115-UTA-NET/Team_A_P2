@@ -43,6 +43,7 @@ jobs:
           
       - name: Test Coverage
         run: |
+          cd PhoenixTheatreAPI/PhoenixTheatreApiTests/
           dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura 
           
       - name: Build and analyze
