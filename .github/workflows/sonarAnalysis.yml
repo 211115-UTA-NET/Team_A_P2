@@ -43,7 +43,7 @@ jobs:
           
       - name: Test Coverage
         run: |
-          coverlet PhoenixTheatreApiTests\bin\Debug\net6.0\PhoenixTheatreApiTests.dll --target "%VSINSTALLDIR%\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe" --targetargs "PhoenixTheatreApiTests\bin\Debug\net6.0\PhoenixTheatreApiTests.dll" --format opencover
+          dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura 
           
       - name: Build and analyze
         env:
