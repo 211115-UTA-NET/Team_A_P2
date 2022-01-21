@@ -15,10 +15,10 @@ namespace PhoenixTheatreAPI.Controllers
             _service = service;
         }
 
-        [HttpGet]
-        public FilmShowings GetAll()
+        [HttpGet("filmShowings")]
+        public IEnumerable<FilmShowings> GetAllFilmShowings()
         {
-            throw new NotImplementedException();
+            return _service.GetAllFilmShowings();
         }
 
         [HttpGet("orderId")]

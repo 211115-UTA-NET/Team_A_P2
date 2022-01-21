@@ -12,7 +12,7 @@ namespace PhoenixTheatreAPI.Data
         }
 
         //public DbSet<TheatreFilms> TheatreFilms => Set<TheatreFilms>();
-        //public DbSet<FilmShowings> FilmShowings => Set<FilmShowings>();
+        public virtual DbSet<FilmShowings> FilmShowings => Set<FilmShowings>();
         public virtual DbSet<CustomerOrder> Orders => Set<CustomerOrder>();
         public virtual DbSet<Customer> Customer => Set<Customer>();
         public virtual DbSet<Employee> Employee => Set<Employee>();
