@@ -1,4 +1,5 @@
-﻿using PhoenixTheatreAPI.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using PhoenixTheatreAPI.Data;
 using PhoenixTheatreAPI.Dtos;
 
 namespace PhoenixTheatreAPI.Services
@@ -12,9 +13,9 @@ namespace PhoenixTheatreAPI.Services
             _context = context;
         }
 
-        public FilmShowings GetAll()
+        public virtual IEnumerable<FilmShowings> GetAllFilmShowings()
         {
-            throw new NotImplementedException();
+            return _context.FilmShowings.AsNoTracking().ToList();
         }
 
         public CustomerOrder GetOrderById(Guid orderId)

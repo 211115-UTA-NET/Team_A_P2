@@ -11,6 +11,5 @@ namespace PhoenixTheatreAPI.Dtos
         public DateTime ShowDate { get; set; }
         public DateTime ShowTime { get; set; }
         public int TicketsAvailable { get; set; }
-        public TheatreFilms TheatreFilms { get; set; }
     }
 }

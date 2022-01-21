@@ -5,12 +5,59 @@ using PhoenixTheatreAPI.Data;
 using PhoenixTheatreAPI.Dtos;
 using PhoenixTheatreAPI.Services;
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace PhoenixTheatreApiTests
 {
     public class UnitTest1
     {
+        [Fact]
+        public void GetAllFilmShowingsTest()
+        {
+            DateTime showDate = DateTime.Today;
+            DateTime showTime = default(DateTime).Add(showDate.TimeOfDay);
+
+            List<FilmShowings> filmTime = new List<FilmShowings>();
+            filmTime.Add(new()
+            {
+                FilmShowingsId = 1,
+                TheatreId = 1,
+                FilmId = 1,
+                ShowDate = showDate,
+                ShowTime = showTime,
+                TicketsAvailable = 40
+            });
+            filmTime.Add(new()
+            {
+                FilmShowingsId = 2,
+                TheatreId = 1,
+                FilmId = 2,
+                ShowDate = showDate,
+                ShowTime = showTime,
+                TicketsAvailable = 40
+            });
+
+            IEnumerable<FilmShowings> filmShowings = filmTime;
+              
+
+            var mockSet = new Mock<DbSet<FilmShowings>>();
+
+            var mockContext = new Mock<PhoenixTheatreContext>();
+
+            mockContext.Setup(x => x.FilmShowings).Returns(mockSet.Object);
+
+            var mockService = new Mock<PhoenixTheatreService>();
+
+            mockService.Setup(x => x.GetAllFilmShowings()).Returns(filmShowings);
+
+            var controller = new PhoenixTheatreController(mockService.Object);
+
+            var actual = controller.GetAllFilmShowings();
+
+            Assert.Same(filmShowings, actual);
+            Assert.Equal(filmShowings.GetEnumerator(), actual.GetEnumerator());
+        }
         [Fact]
         public void GetCustomerByNameTest()
         {
