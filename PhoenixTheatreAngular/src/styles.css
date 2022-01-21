@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+a
+{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+app-top-bar {
+    width: 98%;
+    height: 68px;
+    background-color: blueviolet;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  app-top-bar h1 {
+    color: white;
+    margin: 0;
+  }
