@@ -41,7 +41,7 @@ jobs:
         run: npm ci
             
       - name: Build Angular
-        run: ng build -- --prod
+        run: ng build
 
           
       - name: Deploy to Azure Web App
