@@ -5,6 +5,7 @@ namespace PhoenixTheatreAPI.Dtos
 {
     public class TheatreFilms
     {
+        [Key]
         public int FilmId { get; set; }
         public string FilmName { get; set; }
         public string FilmRating { get; set; }

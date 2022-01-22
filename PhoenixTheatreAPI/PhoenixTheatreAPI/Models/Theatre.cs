@@ -6,5 +6,7 @@ namespace PhoenixTheatreAPI.Dtos
     {
         public int TheatreId { get; set; }
         public string TheatreLocation { get; set; }
+
+        public ICollection<FilmShowings> FilmShowings { get; set;}
     }
 }

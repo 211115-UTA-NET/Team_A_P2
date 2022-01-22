@@ -48,8 +48,13 @@ namespace PhoenixTheatreAPI.Controllers
             else
             {
                 return NotFound();
-            }
-                
+            }   
+        }
+
+        [HttpGet("invoiceLineItems")]
+        public IEnumerable<InvoiceLineItem> GetInvoiceLineItems()
+        {
+            return _service.GetInvoiceLineItems();
         }
 
         [HttpGet("employee")]

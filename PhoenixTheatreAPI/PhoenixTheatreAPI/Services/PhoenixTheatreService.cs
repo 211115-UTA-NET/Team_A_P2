@@ -15,10 +15,19 @@ namespace PhoenixTheatreAPI.Services
 
         public virtual IEnumerable<FilmShowings> GetAllFilmShowings()
         {
-            return _context.FilmShowings.AsNoTracking().ToList();
+            IEnumerable<FilmShowings> filmShowings = new List<FilmShowings>();
+            try
+            {
+                filmShowings = _context.FilmShowings;
+            }
+            catch
+            {
+                throw new Exception();
+            }
+            return filmShowings;
         }
 
-        public CustomerOrder GetOrderById(Guid orderId)
+        public virtual CustomerOrder GetOrderById(Guid orderId)
         {
             var order = new CustomerOrder();
             try
@@ -58,6 +67,11 @@ namespace PhoenixTheatreAPI.Services
                 return null;
             }
             return employee;
+        }
+
+        public virtual IEnumerable<InvoiceLineItem> GetInvoiceLineItems()
+        {
+            return _context.InvoiceLineItem;
         }
 
         public Customer CreateCustomer(Customer newCustomer)

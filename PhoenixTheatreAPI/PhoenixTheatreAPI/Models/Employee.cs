@@ -9,5 +9,7 @@
         public string UserPassword { get; set; }
         public string IsManager { get; set; }
         public int TheatreId { get; set; }
+
+        public Theatre Theatre { get; set; }
     }
 }
