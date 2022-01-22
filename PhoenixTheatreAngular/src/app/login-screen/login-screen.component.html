@@ -1,4 +1,5 @@
 <div id="Screen">
+    <!-- Default Login Screen-->
     <div *ngIf="showHome">
         <h2>
             Welcome to PhoenixTheatre
@@ -8,13 +9,15 @@
             <button (click)="NewCus()">New Customer</button>
         </h3>
     </div>
+
+    <!-- New Customer Information -->
     <div *ngIf="showNew">
         <h2>
             New Customer Infomation
         </h2>
         <h3>
             <form>
-                <label for="fname">First Name:</label><br>
+                <!-- <label for="fname">First Name:</label><br>
                 <input type="text" id="fname" name="fname"><br><br>
                 <label for="lname">Last Name:</label><br>
                 <input type="text" id="lname" name="lname"><br><br>
@@ -22,11 +25,13 @@
                 <input type="text" id="Username" name="Username"><br><br>
                 <label for="Password">Password:</label><br>
                 <input type="password" id="Password" name="Password"><br><br>
-                <button>Sign Up</button><br>
+                <button class="button" type="submit">Sign Up</button><br> -->
             </form>
             <button (click)="Back()">Back</button>
         </h3>
     </div>
+    
+    <!-- Login -->
     <div *ngIf="showReturn">
         <h2>Login</h2>
         <h3>

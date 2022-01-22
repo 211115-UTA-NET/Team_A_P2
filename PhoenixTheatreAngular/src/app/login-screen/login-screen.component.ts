@@ -1,4 +1,7 @@
-import { Component} from '@angular/core'; 
+import { Component} from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+
+import { logins } from '../TempLogin';
 
 @Component({
   selector: 'app-login-screen',
@@ -9,6 +12,18 @@ export class LoginScreenComponent{
   showHome:boolean = true;
   showNew:boolean = false;
   showReturn:boolean = false;
+  
+  // newCustomer = this.formBuilder.group({
+  //   FirstName: '',
+  //   LastName: '',
+  //   Username: '',
+  //   Password: ''
+  // });
+
+  // userLogin = this.formBuilder.group({
+  //   Username: '',
+  //   Password: ''
+  // });
   
   constructor() 
   {
@@ -35,5 +50,9 @@ export class LoginScreenComponent{
     this.showHome = true;
     this.showNew = false;
     this.showReturn = false;
+  }
+
+  onSumbit(): void{
+
   }
 }
