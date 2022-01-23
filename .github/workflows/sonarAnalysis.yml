@@ -65,5 +65,5 @@ jobs:
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"211115-UTA-NET_Team_A_P2" /o:"211115-uta-net" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths="D:\a\Team_A_P2\Team_A_P2\PhoenixTheatreAPI\PhoenixTheatreApiTests\coverage.opencover.xml" /d:sonar.javascript.lcov.reportPaths="./PhoenixTheatreAngular/coverage/phoenix-theatre-angular/lcov.info"
           dotnet build ./PhoenixTheatreAPI/PhoenixTheatreAPI.sln
           cd PhoenixTheatreAngular
-          npx run build
+          npx run build:ci
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
