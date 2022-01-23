@@ -48,6 +48,7 @@ jobs:
           cd PhoenixTheatreAngular
           npx ci
           npx ng test --code-coverage --no-watch --browsers=ChromeHeadless
+          cd ..
           
       - name: Setup .NET 6
         uses: actions/setup-dotnet@v1
