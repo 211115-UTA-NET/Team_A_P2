@@ -13,19 +13,19 @@ export class LoginScreenComponent{
   showNew:boolean = false;
   showReturn:boolean = false;
   
-  // newCustomer = this.formBuilder.group({
-  //   FirstName: '',
-  //   LastName: '',
-  //   Username: '',
-  //   Password: ''
-  // });
+  getNewCustomer = this.formBuilder.group({
+    fname: '',
+    lname: '',
+    username: '',
+    password: ''
+  });
 
-  // userLogin = this.formBuilder.group({
-  //   Username: '',
-  //   Password: ''
-  // });
+  getUserLogin = this.formBuilder.group({
+    username: '',
+    password: ''
+  });
   
-  constructor() 
+  constructor(private formBuilder:FormBuilder) 
   {
     
   }
@@ -52,7 +52,11 @@ export class LoginScreenComponent{
     this.showReturn = false;
   }
 
-  onSumbit(): void{
+  onSubmitCustomer(): void{
+
+  }
+
+  onSubmitUser(): void{
 
   }
 }
