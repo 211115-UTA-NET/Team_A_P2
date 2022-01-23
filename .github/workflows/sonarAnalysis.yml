@@ -38,18 +38,6 @@ jobs:
           New-Item -Path .\.sonar\scanner -ItemType Directory
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
           
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-          
-      - name: Test Coverage
-        run: |
-          cd PhoenixTheatreAngular
-          npx ci
-          npx ng test --code-coverage --no-watch --browsers=ChromeHeadless
-          cd ..
-          
       - name: Setup .NET 6
         uses: actions/setup-dotnet@v1
         with:
@@ -59,7 +47,6 @@ jobs:
         run: |
           cd PhoenixTheatreAPI/PhoenixTheatreApiTests/
           dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
-          cd ../..
           
       - name: Build and analyze
         env:
