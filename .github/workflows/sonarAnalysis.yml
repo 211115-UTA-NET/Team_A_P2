@@ -59,6 +59,7 @@ jobs:
         run: |
           cd PhoenixTheatreAPI/PhoenixTheatreApiTests/
           dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+          cd ../..
           
       - name: Build and analyze
         env:
