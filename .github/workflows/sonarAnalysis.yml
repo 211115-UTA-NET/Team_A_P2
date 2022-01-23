@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    types: [opened, synchronize, reopened]
 jobs:
   build:
     name: Build
@@ -46,6 +44,17 @@ jobs:
         run: |
           cd PhoenixTheatreAPI/PhoenixTheatreApiTests/
           dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover 
+          
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          
+      - name: Test Coverage
+        run: |
+          cd PhoenixTheatreAngular
+          npx ci
+          npx ng test --code-coverage --no-watch --browsers=ChromeHeadless
           
       - name: Build and analyze
         env:
