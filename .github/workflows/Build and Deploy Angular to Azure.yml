@@ -43,7 +43,7 @@ jobs:
             
       - name: Build Angular
         run: |
-          npm build ./PhoenixTheatreAngular
+          ng build ./PhoenixTheatreAngular
 
           
 #       - name: Deploy to Azure Web App
