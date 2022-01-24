@@ -39,17 +39,19 @@ jobs:
       - name: Install Dependencies
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: |
-          npm i
+          pwd
+          ls .
+          ls ./..
             
-      - name: Build Angular
-        run: |
-          ng build
+#       - name: Build Angular
+#         run: |
+#           ng build
 
           
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          publish-profile: ${{ secrets.AZURE_WEBAPP_APP_PUBLISH_PROFILE }}
-          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+#       - name: Deploy to Azure Web App
+#         id: deploy-to-webapp
+#         uses: azure/webapps-deploy@v2
+#         with:
+#           app-name: ${{ env.AZURE_WEBAPP_NAME }}
+#           publish-profile: ${{ secrets.AZURE_WEBAPP_APP_PUBLISH_PROFILE }}
+#           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
