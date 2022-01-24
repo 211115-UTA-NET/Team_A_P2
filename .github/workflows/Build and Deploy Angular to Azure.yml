@@ -39,7 +39,7 @@ jobs:
       - name: Install Dependencies
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: |
-          npm ci
+          npm i
             
       - name: Build Angular
         run: |
