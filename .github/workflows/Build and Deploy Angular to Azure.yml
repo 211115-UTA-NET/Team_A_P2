@@ -39,12 +39,11 @@ jobs:
       - name: Install Dependencies
 #         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: |
-          pwd
-          ls ./PhoenixTheatreAngular
+          ng ci ./PhoenixTheatreAngular
             
-#       - name: Build Angular
-#         run: |
-#           ng build
+      - name: Build Angular
+        run: |
+          ng build ./PhoenixTheatreAngular
 
           
 #       - name: Deploy to Azure Web App
