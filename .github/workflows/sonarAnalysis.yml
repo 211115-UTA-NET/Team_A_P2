@@ -26,16 +26,10 @@ jobs:
           npx ng test --code-coverage --no-watch --browsers=ChromeHeadless
           
       - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        shell: bash
-        run: |
-          npx install sonar-scanner --save-dev npm run sonar-scanner begin /k:"211115-uta-net_Team_A_P2_Angular" /o:"211115-uta-net" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" 
-          cd PhoenixTheatreAngular
-          npx ci
-          npx run build -- --prod
-          npx run sonar-scanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
   build:
     name: Build
