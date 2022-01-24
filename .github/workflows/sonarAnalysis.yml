@@ -22,7 +22,7 @@ jobs:
       - name: Test Coverage
         run: |
           cd PhoenixTheatreAngular
-          npc ci
+          npx ci
           npx ng test --code-coverage --no-watch --browsers=ChromeHeadless
           
       - name: SonarCloud Scan
