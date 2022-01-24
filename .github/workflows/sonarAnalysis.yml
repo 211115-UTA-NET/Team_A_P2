@@ -5,6 +5,32 @@ on:
     branches:
       - main
 jobs:
+
+  sonarcloud:
+    name: SonarCloud
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          
+      - name: Test Coverage
+        run: |
+          cd PhoenixTheatreAngular
+          npx ci
+          npx ng test --code-coverage --no-watch --browsers=ChromeHeadless
+          
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
   build:
     name: Build
     runs-on: windows-latest
@@ -45,25 +71,12 @@ jobs:
           cd PhoenixTheatreAPI/PhoenixTheatreApiTests/
           dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover 
           
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-          
-      - name: Test Coverage
-        run: |
-          cd PhoenixTheatreAngular
-          npx ci
-          npx ng test --code-coverage --no-watch --browsers=ChromeHeadless
-          
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"211115-UTA-NET_Team_A_P2" /o:"211115-uta-net" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths="D:\a\Team_A_P2\Team_A_P2\PhoenixTheatreAPI\PhoenixTheatreApiTests\coverage.opencover.xml" /d:sonar.javascript.lcov.reportPaths="./PhoenixTheatreAngular/coverage/phoenix-theatre-angular/lcov.info"
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"211115-UTA-NET_Team_A_P2" /o:"211115-uta-net" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths="D:\a\Team_A_P2\Team_A_P2\PhoenixTheatreAPI\PhoenixTheatreApiTests\coverage.opencover.xml" 
           dotnet build ./PhoenixTheatreAPI/PhoenixTheatreAPI.sln
-          npx install
-          npx run build:prod
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
