@@ -30,7 +30,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.os }}-build-${{ hashFiles('**/packages.lock.json') }}
+          key: ${{ runner.os }}-build-${{ hashFiles('**PhoenixTheatreAngular/src/index.html) }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
@@ -38,10 +38,12 @@ jobs:
             
       - name: Install Dependencies
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
-        run: npm ci
+        run: |
+          npm ci
             
       - name: Build Angular
-        run: ng build
+        run: |
+          ng build
 
           
       - name: Deploy to Azure Web App
