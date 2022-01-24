@@ -32,8 +32,9 @@ jobs:
         shell: bash
         run: |
           npx install sonar-scanner --save-dev npm run sonar-scanner begin /k:"211115-uta-net_Team_A_P2_Angular" /o:"211115-uta-net" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" 
+          cd PhoenixTheatreAngular
           npx ci
-          npx run build ./PhoenixTheatreAngular/package-lock.json
+          npx run ng serve
           npx run sonar-scanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
   build:
