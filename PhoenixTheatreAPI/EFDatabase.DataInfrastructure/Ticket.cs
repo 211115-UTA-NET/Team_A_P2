@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace PhoenixTheatre.DataInfrastructure
 {
@@ -9,7 +10,7 @@ namespace PhoenixTheatre.DataInfrastructure
         {
             InvoiceLineItems = new HashSet<InvoiceLineItem>();
         }
-
+        [Key]
         public string TicketType { get; set; } = null!;
         public decimal TicketPrice { get; set; }
 

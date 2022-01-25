@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace PhoenixTheatre.DataInfrastructure
 {
@@ -9,7 +10,7 @@ namespace PhoenixTheatre.DataInfrastructure
         {
             FilmShowings = new HashSet<FilmShowing>();
         }
-
+        [Key]
         public int FilmId { get; set; }
         public string FilmName { get; set; } = null!;
         public string FilmRating { get; set; } = null!;
