@@ -15,7 +15,7 @@ namespace PhoenixTheatreAPI.Services
 
         public virtual IEnumerable<FilmShowing> GetAllFilmShowings()
         {
-            return (IEnumerable<FilmShowing>)_context.FilmShowings.AsNoTracking().ToList();
+            return _context.FilmShowings.AsNoTracking().ToList();
         }
 
         public CustomerOrder GetOrderById(Guid orderId)
