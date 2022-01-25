@@ -43,7 +43,8 @@ jobs:
             
       - name: Build Angular
         run: |
-          npm run build --if-present ./PhoenixTheatreAngular
+          cd ./PhoenixTheatreAngular
+          npm run build --if-present
 
           
 #       - name: Deploy to Azure Web App
