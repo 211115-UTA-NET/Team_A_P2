@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PhoenixTheatre.DataInfrastructure;
 using PhoenixTheatreAPI.Data;
-using PhoenixTheatreAPI.Dtos;
 
 namespace PhoenixTheatreAPI.Services
 {
@@ -13,7 +13,7 @@ namespace PhoenixTheatreAPI.Services
             _context = context;
         }
 
-        public virtual IEnumerable<FilmShowings> GetAllFilmShowings()
+        public virtual IEnumerable<FilmShowing> GetAllFilmShowings()
         {
             return _context.FilmShowings.AsNoTracking().ToList();
         }
@@ -90,7 +90,14 @@ namespace PhoenixTheatreAPI.Services
 
         public Customer CreateCustomer(Customer newCustomer)
         {
-            _context.Customer.Add(newCustomer);
+            _context.Customer.Add(new Customer
+            {
+                CustomerId = newCustomer.CustomerId,
+                FirstName = newCustomer.FirstName,
+                LastName = newCustomer.LastName,
+                Username = newCustomer.Username,
+                UserPassword = newCustomer.UserPassword
+            });
             _context.SaveChanges();
             return newCustomer;
         }

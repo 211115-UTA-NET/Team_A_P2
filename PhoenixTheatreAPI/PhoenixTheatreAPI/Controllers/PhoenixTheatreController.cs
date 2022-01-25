@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PhoenixTheatreAPI.Dtos;
+using PhoenixTheatre.DataInfrastructure;
 using PhoenixTheatreAPI.Services;
 
 namespace PhoenixTheatreAPI.Controllers
@@ -16,7 +16,7 @@ namespace PhoenixTheatreAPI.Controllers
         }
 
         [HttpGet("filmShowings")]
-        public IEnumerable<FilmShowings> GetAllFilmShowings()
+        public IEnumerable<FilmShowing> GetAllFilmShowings()
         {
             return _service.GetAllFilmShowings();
         }
@@ -129,8 +129,15 @@ namespace PhoenixTheatreAPI.Controllers
         }
 
         [HttpPost("{order}")]
-        public IActionResult CreateOrder(CustomerOrder newOrder)
+        public IActionResult CreateOrder(string username, int theatreId, List<InvoiceLineItem> invoiceLineItems)
         {
+            var customer = GetCustomerByUsername(username);
+            CustomerOrder newOrder = new CustomerOrder
+            {
+                OrderId = Guid.NewGuid(),
+                CustomerId = customer.Value.CustomerId,
+                TheatreId = theatreId,
+            };
             throw new NotImplementedException();
         }
     }

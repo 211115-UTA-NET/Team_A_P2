@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Moq;
+using PhoenixTheatre.DataInfrastructure;
 using PhoenixTheatreAPI.Controllers;
 using PhoenixTheatreAPI.Data;
-using PhoenixTheatreAPI.Dtos;
 using PhoenixTheatreAPI.Services;
 using System;
 using System.Collections.Generic;
@@ -18,14 +18,14 @@ namespace PhoenixTheatreApiTests
             DateTime showDate = DateTime.Today;
             DateTime showTime = default(DateTime).Add(showDate.TimeOfDay);
 
-            List<FilmShowings> filmTime = new List<FilmShowings>();
+            List<FilmShowing> filmTime = new List<FilmShowing>();
             filmTime.Add(new()
             {
                 FilmShowingsId = 1,
                 TheatreId = 1,
                 FilmId = 1,
                 ShowDate = showDate,
-                ShowTime = showTime,
+                Showtime = showTime,
                 TicketsAvailable = 40
             });
             filmTime.Add(new()
@@ -34,14 +34,14 @@ namespace PhoenixTheatreApiTests
                 TheatreId = 1,
                 FilmId = 2,
                 ShowDate = showDate,
-                ShowTime = showTime,
+                Showtime = showTime,
                 TicketsAvailable = 40
             });
 
-            IEnumerable<FilmShowings> filmShowings = filmTime;
+            IEnumerable<FilmShowing> filmShowings = filmTime;
               
 
-            var mockSet = new Mock<DbSet<FilmShowings>>();
+            var mockSet = new Mock<DbSet<FilmShowing>>();
 
             var mockContext = new Mock<PhoenixTheatreContext>();
 

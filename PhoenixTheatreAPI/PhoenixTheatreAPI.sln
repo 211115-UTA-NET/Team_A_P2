@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoenixTheatreAPI", "PhoenixTheatreAPI\PhoenixTheatreAPI.csproj", "{DDB500AE-BF3F-4D0B-9B87-9B7ED7794411}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoenixTheatreApiTests", "PhoenixTheatreApiTests\PhoenixTheatreApiTests.csproj", "{51F13C8C-0E54-4F80-BD8B-7DC6BA857F5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoenixTheatreApiTests", "PhoenixTheatreApiTests\PhoenixTheatreApiTests.csproj", "{51F13C8C-0E54-4F80-BD8B-7DC6BA857F5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoenixTheatre.DataInfrastructure", "EFDatabase.DataInfrastructure\PhoenixTheatre.DataInfrastructure.csproj", "{C1411DA7-4815-43B2-9A6A-F4AA947297B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{51F13C8C-0E54-4F80-BD8B-7DC6BA857F5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51F13C8C-0E54-4F80-BD8B-7DC6BA857F5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51F13C8C-0E54-4F80-BD8B-7DC6BA857F5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1411DA7-4815-43B2-9A6A-F4AA947297B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1411DA7-4815-43B2-9A6A-F4AA947297B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1411DA7-4815-43B2-9A6A-F4AA947297B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1411DA7-4815-43B2-9A6A-F4AA947297B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
