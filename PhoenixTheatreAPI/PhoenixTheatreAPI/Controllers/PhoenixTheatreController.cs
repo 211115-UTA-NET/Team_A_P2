@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PhoenixTheatreAPI.Dtos;
+using PhoenixTheatre.DataInfrastructure;
 using PhoenixTheatreAPI.Services;
 
 namespace PhoenixTheatreAPI.Controllers
@@ -16,7 +16,7 @@ namespace PhoenixTheatreAPI.Controllers
         }
 
         [HttpGet("filmShowings")]
-        public IEnumerable<FilmShowings> GetAllFilmShowings()
+        public IEnumerable<FilmShowing> GetAllFilmShowings()
         {
             return _service.GetAllFilmShowings();
         }
