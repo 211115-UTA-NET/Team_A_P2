@@ -52,6 +52,21 @@ namespace PhoenixTheatreAPI.Controllers
                 
         }
 
+        [HttpGet("customer/username")]
+        public ActionResult<Customer> GetCustomerByUsername(string username)
+        {
+            var customer = _service.GetCustomerByUsername(username);
+
+            if (customer != null)
+            {
+                return customer;
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
         [HttpGet("employee")]
         public ActionResult<Employee> GetEmployeeByName(string firstName, string lastName)
         {
@@ -66,16 +81,51 @@ namespace PhoenixTheatreAPI.Controllers
             }
         }
 
-        [HttpPost("{customer}")]
-        public IActionResult CreateCustomer(Customer newCustomer)
+        [HttpGet("employee/username")]
+        public ActionResult<Employee> GetEmployeeByUsername(string username)
         {
-            throw new NotImplementedException();
+            var employee = _service.GetEmployeeByUsername(username);
+
+            if (employee != null)
+            {
+                return employee;
+            }
+            else
+            {
+                return NotFound();
+            }
         }
 
-        [HttpPost("{employee}")]
-        public IActionResult CreateEmployee(Employee newEmployee)
+        [HttpPost("createCustomer")]
+        public IActionResult CreateCustomer(string firstName, string lastName, string username, string userPassword)
         {
-            throw new NotImplementedException();
+            Customer newCustomer = new Customer
+            {
+                CustomerId = Guid.NewGuid(),
+                FirstName = firstName,
+                LastName = lastName,
+                Username = username,
+                UserPassword = userPassword
+            };
+            var customer = _service.CreateCustomer(newCustomer);
+            return CreatedAtAction(nameof(GetCustomerByUsername), new { username = customer!.Username }, customer);
+        }
+
+        [HttpPost("createEmployee")]
+        public IActionResult CreateEmployee(string firstName, string lastName, string username, string userPassword, string IsManager, int theatreId)
+        {
+            Employee newEmployee = new Employee
+            {
+                EmployeeId = Guid.NewGuid(),
+                FirstName = firstName,
+                LastName = lastName,
+                Username = username,
+                UserPassword = userPassword,
+                IsManager = IsManager,
+                TheatreId = theatreId
+            };
+            var employee = _service.CreateEmployee(newEmployee);
+            return CreatedAtAction(nameof(GetEmployeeByUsername), new { username = employee!.Username }, employee);
         }
 
         [HttpPost("{order}")]

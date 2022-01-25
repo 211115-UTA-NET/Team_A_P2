@@ -46,6 +46,20 @@ namespace PhoenixTheatreAPI.Services
             return customer;
         }
 
+        public virtual Customer GetCustomerByUsername(string username)
+        {
+            var customer = new Customer();
+            try
+            {
+                customer = _context.Customer.Where(x => x.Username == username).Single();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            return customer;
+        }
+
         public virtual Employee GetEmployeeByName(string firstName, string lastName)
         {
             var employee = new Employee();
@@ -60,14 +74,32 @@ namespace PhoenixTheatreAPI.Services
             return employee;
         }
 
+        public virtual Employee GetEmployeeByUsername(string username)
+        {
+            var employee = new Employee();
+            try
+            {
+                employee = _context.Employee.Where(x => x.Username == username).Single();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            return employee;
+        }
+
         public Customer CreateCustomer(Customer newCustomer)
         {
-            throw new NotImplementedException();
+            _context.Customer.Add(newCustomer);
+            _context.SaveChanges();
+            return newCustomer;
         }
 
         public Employee CreateEmployee(Employee newEmployee)
         {
-            throw new NotImplementedException();
+            _context.Employee.Add(newEmployee);
+            _context.SaveChanges();
+            return newEmployee;
         }
 
         public CustomerOrder CreateOrder(CustomerOrder newOrder)
