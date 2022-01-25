@@ -9,5 +9,7 @@ namespace PhoenixTheatreAPI.Dtos
         public Guid CustomerId { get; set; }
         public int TheatreId { get; set; }
         public decimal TotalPrice { get; set; }
+
+        public ICollection<InvoiceLineItem> InvoiceLineItem { get; set; }
     }
 }

@@ -129,8 +129,15 @@ namespace PhoenixTheatreAPI.Controllers
         }
 
         [HttpPost("{order}")]
-        public IActionResult CreateOrder(CustomerOrder newOrder)
+        public IActionResult CreateOrder(string username, int theatreId, List<InvoiceLineItem> invoiceLineItems)
         {
+            var customer = GetCustomerByUsername(username);
+            CustomerOrder newOrder = new CustomerOrder
+            {
+                OrderId = Guid.NewGuid(),
+                CustomerId = customer.Value.CustomerId,
+                TheatreId = theatreId,
+            };
             throw new NotImplementedException();
         }
     }
