@@ -25,16 +25,16 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       
-#       - name: Cache node modules
-#         id: cache-nodemodules
-#         uses: actions/cache@v2
-#         with:
-#           path: node_modules
-#           key: ${{ runner.os }}-build-${{ hashFiles('**PhoenixTheatreAngular/src/index.html') }}
-#           restore-keys: |
-#             ${{ runner.os }}-build-${{ env.cache-name }}-
-#             ${{ runner.os }}-build-
-#             ${{ runner.os }}-
+      - name: Cache node modules
+        id: cache-nodemodules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ hashFiles('**PhoenixTheatreAngular/src/index.html') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
             
       - name: Install Dependencies
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
