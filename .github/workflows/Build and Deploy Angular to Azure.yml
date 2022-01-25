@@ -2,15 +2,18 @@ name: Build and deploy Angular app to an Azure Web App
 
 env:
   AZURE_WEBAPP_NAME: PhoenixTheatre    # set this to the name of your Azure Web App
-  AZURE_WEBAPP_PACKAGE_PATH: './PhoenixTheatreAngular'      # set this to the path to your web app project, defaults to the repository root
+  AZURE_WEBAPP_PACKAGE_PATH: './PhoenixTheatreAngular/dist/phoenix-theatre-angular'      # set this to the path to your web app project, defaults to the repository root
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     
     strategy:
@@ -24,6 +27,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'npm'
       
       - name: Cache node modules
         id: cache-nodemodules
