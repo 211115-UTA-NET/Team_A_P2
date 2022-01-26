@@ -1,11 +1,11 @@
-using PhoenixTheatreAPI.Data;
+using PhoenixTheatre.DataInfrastructure;
 using PhoenixTheatreAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 string connectionString = builder.Configuration.GetConnectionString("ConnectionStringPTDB");
 
-builder.Services.AddSqlServer<PhoenixTheatreContext>(connectionString);
+builder.Services.AddSqlServer<Team_A_P2Context>(connectionString);
 
 // Add services to the container.
 
