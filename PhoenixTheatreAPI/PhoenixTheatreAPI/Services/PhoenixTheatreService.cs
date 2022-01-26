@@ -1,20 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PhoenixTheatre.DataInfrastructure;
-using PhoenixTheatreAPI.Data;
 
 namespace PhoenixTheatreAPI.Services
 {
     public class PhoenixTheatreService
     {
-        private readonly PhoenixTheatreContext _context;
+        private readonly Team_A_P2Context _context;
         public PhoenixTheatreService() { }
-        public PhoenixTheatreService(PhoenixTheatreContext context)
+        public PhoenixTheatreService(Team_A_P2Context context)
         {
             _context = context;
         }
 
         public virtual IEnumerable<FilmShowing> GetAllFilmShowings()
         {
+//            var filmLocation = from
             return _context.FilmShowings.AsNoTracking().ToList();
         }
 
@@ -23,7 +23,7 @@ namespace PhoenixTheatreAPI.Services
             var order = new CustomerOrder();
             try
             {
-                order = _context.Orders.Where(x => x.OrderId == orderId).Single();
+                order = _context.CustomerOrders.Where(x => x.OrderId == orderId).Single();
             }
             catch (Exception ex)
             {
@@ -37,7 +37,7 @@ namespace PhoenixTheatreAPI.Services
             var customer = new Customer();
             try
             {
-                customer = _context.Customer.Where(x => x.FirstName == firstName && x.LastName == lastName).Single();
+                customer = _context.Customers.Where(x => x.FirstName == firstName && x.LastName == lastName).Single();
             }
             catch (Exception ex)
             {
@@ -51,7 +51,7 @@ namespace PhoenixTheatreAPI.Services
             var customer = new Customer();
             try
             {
-                customer = _context.Customer.Where(x => x.Username == username).Single();
+                customer = _context.Customers.Where(x => x.Username == username).Single();
             }
             catch (Exception ex)
             {
@@ -65,7 +65,7 @@ namespace PhoenixTheatreAPI.Services
             var employee = new Employee();
             try
             {
-                employee = _context.Employee.Where(x => x.FirstName == firstName && x.LastName == lastName).Single();
+                employee = _context.Employees.Where(x => x.FirstName == firstName && x.LastName == lastName).Single();
             }
             catch (Exception ex)
             {
@@ -79,7 +79,7 @@ namespace PhoenixTheatreAPI.Services
             var employee = new Employee();
             try
             {
-                employee = _context.Employee.Where(x => x.Username == username).Single();
+                employee = _context.Employees.Where(x => x.Username == username).Single();
             }
             catch (Exception ex)
             {
@@ -90,7 +90,7 @@ namespace PhoenixTheatreAPI.Services
 
         public Customer CreateCustomer(Customer newCustomer)
         {
-            _context.Customer.Add(new Customer
+            _context.Customers.Add(new Customer
             {
                 CustomerId = newCustomer.CustomerId,
                 FirstName = newCustomer.FirstName,
@@ -104,7 +104,7 @@ namespace PhoenixTheatreAPI.Services
 
         public Employee CreateEmployee(Employee newEmployee)
         {
-            _context.Employee.Add(newEmployee);
+            _context.Employees.Add(newEmployee);
             _context.SaveChanges();
             return newEmployee;
         }

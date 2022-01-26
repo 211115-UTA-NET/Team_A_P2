@@ -2,7 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using Moq;
 using PhoenixTheatre.DataInfrastructure;
 using PhoenixTheatreAPI.Controllers;
-using PhoenixTheatreAPI.Data;
 using PhoenixTheatreAPI.Services;
 using System;
 using System.Collections.Generic;
@@ -43,7 +42,7 @@ namespace PhoenixTheatreApiTests
 
             var mockSet = new Mock<DbSet<FilmShowing>>();
 
-            var mockContext = new Mock<PhoenixTheatreContext>();
+            var mockContext = new Mock<Team_A_P2Context>();
 
             mockContext.Setup(x => x.FilmShowings).Returns(mockSet.Object);
 
@@ -79,9 +78,9 @@ namespace PhoenixTheatreApiTests
 
             var mockSet = new Mock<DbSet<Customer>>();
 
-            var mockContext = new Mock<PhoenixTheatreContext>();
+            var mockContext = new Mock<Team_A_P2Context>();
 
-            mockContext.Setup(x => x.Customer).Returns(mockSet.Object);
+            mockContext.Setup(x => x.Customers).Returns(mockSet.Object);
 
             var mockService = new Mock<PhoenixTheatreService>();
 
@@ -124,9 +123,9 @@ namespace PhoenixTheatreApiTests
 
             var mockSet = new Mock<DbSet<Employee>>();
 
-            var mockContext = new Mock<PhoenixTheatreContext>();
+            var mockContext = new Mock<Team_A_P2Context>();
 
-            mockContext.Setup(x => x.Employee).Returns(mockSet.Object);
+            mockContext.Setup(x => x.Employees).Returns(mockSet.Object);
 
             var mockService = new Mock<PhoenixTheatreService>();
 
