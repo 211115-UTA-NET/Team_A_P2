@@ -11,6 +11,8 @@ import { MoviesComponent } from './movies/movies.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatCardModule} from '@angular/material/card';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MovieDescriptionComponent } from './movie-description/movie-description.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
@@ -33,7 +35,8 @@ import { MyOrderHistoryComponent } from './my-order-history/my-order-history.com
     MatDatepickerModule,
     MatInputModule,
     MatNativeDateModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
