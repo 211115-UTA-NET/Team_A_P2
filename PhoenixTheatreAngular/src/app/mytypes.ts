@@ -6,5 +6,13 @@ export interface Movie {
     filmDescription: string,
     filmDuration: number,
     image: string,
-    showtimes: string[],
 }
+
+export interface Showtime {
+    filmShowingsId: number,
+    theatreId: number,
+    filmId: number,
+    showDate: Date,
+    showTime: string,
+    ticketsAvailable: number,
+};

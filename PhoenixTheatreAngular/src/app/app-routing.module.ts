@@ -8,7 +8,7 @@ import { MyOrderHistoryComponent } from './my-order-history/my-order-history.com
 const routes: Routes = [
   { path: '', redirectTo: '/movies', pathMatch: 'full' },
   { path: 'movies', component: MoviesComponent, pathMatch: 'full' },
-  { path: 'movies/:id', component: MovieDescriptionComponent },
+  { path: 'movie/:filmId', component: MovieDescriptionComponent },
   { path: 'shoppingcart', component: ShoppingcartComponent },
   { path: 'my-order-history', component: MyOrderHistoryComponent }
 ];

@@ -21,7 +21,7 @@ app-top-bar {
     margin: 0;
   }
 
-  .login
+  .login, .button
   {
     width: 425px;
     background-color: blueviolet;

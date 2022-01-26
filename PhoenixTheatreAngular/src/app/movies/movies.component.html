@@ -1,21 +1,22 @@
-<mat-form-field appearance="fill">
-    <mat-label>Choose a date</mat-label>
-    <input matInput [matDatepicker]="picker">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
-
-<mat-card class="movie-card" *ngFor="let movie of movies">
-    <mat-card-title-group>
-      <mat-card-title>{{movie.filmName}}</mat-card-title>
-      <mat-card-subtitle>
+<mat-tab-group>
+<mat-tab *ngFor="let date of weekdays" label="{{month}}-{{date}}-{{year}}">
+  <mat-card class="movie-card" *ngFor="let movie of movies">
+      <mat-card-title-group>
+        <mat-card-title><a routerLink="/movie/{{movie.filmId}}">{{movie.filmName}}</a></mat-card-title>
+        <mat-card-subtitle>
           {{movie.filmRating}}, {{movie.genre}} <br> {{movie.filmDuration}}
-        </mat-card-subtitle>
-      <img mat-card-md-image src={{movie.image}} >
-    </mat-card-title-group>
-    <mat-card-content>
+          </mat-card-subtitle>
+          <a routerLink="/movie/{{movie.filmId}}"><img mat-card-lg-image src={{movie.image}}></a>
+      </mat-card-title-group>
+      <mat-card-content>
         <mat-card-actions>
-            <button class="movietime" mat-button *ngFor="let showtime of movie.showtimes">{{showtime}}</button>
+          <span *ngFor="let showtime of showtimes">
+            <span *ngIf="showtime.filmId==movie.filmId && date==showtime.showDate.getDate()">
+              <button class="movietime" mat-button><div>{{showtime.showTime}}</div></button>
+            </span>
+          </span>
           </mat-card-actions>
-    </mat-card-content>
-</mat-card>
+      </mat-card-content>
+  </mat-card>
+</mat-tab>
+</mat-tab-group>

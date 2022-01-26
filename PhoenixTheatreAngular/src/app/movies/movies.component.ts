@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from '../mytypes';
-import { fakeMovie } from '../melindas-fake-data';
+import { Movie, Showtime } from '../mytypes';
+import { fakeMovie, fakeShowtime } from '../melindas-fake-data';
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
@@ -8,14 +8,31 @@ import { fakeMovie } from '../melindas-fake-data';
 })
 export class MoviesComponent implements OnInit {
   movies: Movie[] = [];
+  showtimes: Showtime[] = [];
+
+  monthToday: Date = new Date();
+  yearToday: Date = new Date();
+
+  date: Date = new Date();
+  weekdays: Array<number> =
+  [
+    this.date.getDate(),
+    this.date.getDate()+1,
+    this.date.getDate()+2,
+    this.date.getDate()+3,
+    this.date.getDate()+4
+  ];
+
+  month: string = (this.monthToday.getMonth()+1).toString();
+  year: string = this.yearToday.getFullYear().toString();
 
   constructor() { }
 
-  longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
-  from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
-  originally bred for hunting.`;
-
   ngOnInit(): void {
     this.movies = fakeMovie;
+    this.showtimes = fakeShowtime;
+    this.weekdays = this.weekdays;
+    this.month = this.month;
+    this.year = this.year;
   }
 }
