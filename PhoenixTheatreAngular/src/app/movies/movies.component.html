@@ -1,6 +1,3 @@
-<a *ngFor="let date of weekdays" routerLink="/moviedate/{{year}}-{{month}}-{{date}}">
-<button class="moviedate" mat-raised-button >{{month}}-{{date}}-{{year}}</button>
-</a>
 <mat-tab-group>
 <mat-tab  *ngFor="let date of weekdays" label="{{month}}-{{date}}-{{year}}">
   <mat-card class="movie-card" *ngFor="let movie of movies">
