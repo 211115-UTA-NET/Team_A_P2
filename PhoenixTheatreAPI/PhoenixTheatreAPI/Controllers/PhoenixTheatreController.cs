@@ -82,9 +82,9 @@ namespace PhoenixTheatreAPI.Controllers
         }
 
         [HttpGet("employee/username")]
-        public ActionResult<Employee> GetEmployeeByUsername(string username)
+        public ActionResult<Employee> GetEmployeeByUsername(string username, string password)
         {
-            var employee = _service.GetEmployeeByUsername(username);
+            var employee = _service.GetEmployeeByUsername(username, password);
 
             if (employee != null)
             {
@@ -129,9 +129,9 @@ namespace PhoenixTheatreAPI.Controllers
         }
 
         [HttpPost("{order}")]
-        public IActionResult CreateOrder(string username, int theatreId, List<InvoiceLineItem> invoiceLineItems)
+        public IActionResult CreateOrder(string username, string password, int theatreId, List<InvoiceLineItem> invoiceLineItems)
         {
-            var customer = GetCustomerByUsername(username);
+            var customer = GetCustomerByUsername(username, password);
             CustomerOrder newOrder = new CustomerOrder
             {
                 OrderId = Guid.NewGuid(),

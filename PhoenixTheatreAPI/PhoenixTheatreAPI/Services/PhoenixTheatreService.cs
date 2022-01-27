@@ -73,12 +73,12 @@ namespace PhoenixTheatreAPI.Services
             return employee;
         }
 
-        public virtual Employee GetEmployeeByUsername(string username)
+        public virtual Employee GetEmployeeByUsername(string username, string password)
         {
             var employee = new Employee();
             try
             {
-                employee = _context.Employees.Where(x => x.Username == username).Single();
+                employee = _context.Employees.Where(x => x.Username == username && x.UserPassword == password).Single();
             }
             catch (Exception ex)
             {
