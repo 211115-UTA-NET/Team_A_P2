@@ -21,3 +21,7 @@ export interface Tickets {
     ticketType: string,
     ticketPrice: number,
 }
+export interface Customer {
+    firstName: string,
+    lastName: string,
+}
