@@ -11,7 +11,8 @@ builder.Services.AddCors(options =>
                       builder =>
                       {
                           builder.WithOrigins("http://phoenixtheatre.azurewebsites.net",
-                                               "https://phoenixtheatre.azurewebsites.net");
+                                               "https://phoenixtheatre.azurewebsites.net")
+                                               .AllowAnyHeader();
                       });
 });
 
