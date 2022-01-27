@@ -16,6 +16,11 @@ import { fakeTicketSelectionAmounts } from './melindas-fake-data';
 })
 export class MovieService {
 
+  getTicketSelectionAmounts(): Observable<SelectionAmounts[]> {
+    const amounts = of(fakeTicketSelectionAmounts);
+    return amounts;
+  }
+
   getMovies(): Observable<Movie[]> {
     const movies = of(fakeMovie);
     return movies;

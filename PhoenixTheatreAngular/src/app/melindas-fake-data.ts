@@ -30,6 +30,10 @@ export const fakeMovie: Movie[] = [{
 
 export const fakeTicketSelectionAmounts: SelectionAmounts[] = [
 {
+    option: 0,
+    amount: 0
+},
+{
     option: 1,
     amount: 1
 },
