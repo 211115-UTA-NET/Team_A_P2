@@ -16,3 +16,8 @@ export interface Showtime {
     showTime: string,
     ticketsAvailable: number,
 };
+
+export interface Customer {
+    firstName: string,
+    lastName: string,
+}
