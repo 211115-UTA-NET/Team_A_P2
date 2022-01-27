@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-
+import { HttpClient } from '@angular/common/http';
 import { Movie } from './mytypes';
 import { Showtime } from './mytypes';
 import { Tickets } from './mytypes';
@@ -16,9 +16,9 @@ import { fakeTicketSelectionAmounts } from './melindas-fake-data';
 })
 export class MovieService {
 
+  private url = "http://localhost:4200/PhoenixTheatre/filmShowings";
   getMovies(): Observable<Movie[]> {
-    const movies = of(fakeMovie);
-    return movies;
+    return this.http.get<Movie[]>(this.url);
   }
 
   getMovie(id: string): Observable<Movie> {
@@ -41,5 +41,5 @@ export class MovieService {
     return tickets;
   }
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 }
