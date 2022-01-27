@@ -12,17 +12,17 @@ namespace PhoenixTheatreAPI.Services
             _context = context;
         }
 
-        public virtual IEnumerable<FilmShowing> GetAllFilmShowings()
+        public virtual async Task<IEnumerable<FilmShowing>> GetAllFilmShowings()
         {
-            return _context.FilmShowings.AsNoTracking().ToList();
+            return await _context.FilmShowings.AsNoTracking().ToListAsync();
         }
 
-        public CustomerOrder GetOrderById(Guid orderId)
+        public async Task<CustomerOrder> GetOrderById(Guid orderId)
         {
             var order = new CustomerOrder();
             try
             {
-                order = _context.CustomerOrders.Where(x => x.OrderId == orderId).Single();
+                order = await _context.CustomerOrders.Where(x => x.OrderId == orderId).SingleOrDefaultAsync();
             }
             catch (Exception ex)
             {
@@ -31,12 +31,12 @@ namespace PhoenixTheatreAPI.Services
             return order;
         }
 
-        public virtual Customer GetCustomerByName(string firstName, string lastName)
+        public virtual async Task<Customer> GetCustomerByName(string firstName, string lastName)
         {
             var customer = new Customer();
             try
             {
-                customer = _context.Customers.Where(x => x.FirstName == firstName && x.LastName == lastName).Single();
+                customer = await _context.Customers.Where(x => x.FirstName == firstName && x.LastName == lastName).SingleOrDefaultAsync();
             }
             catch (Exception ex)
             {
@@ -45,12 +45,12 @@ namespace PhoenixTheatreAPI.Services
             return customer;
         }
 
-        public virtual Customer GetCustomerByUsername(string username, string password)
+        public virtual async Task<Customer> GetCustomerByUsername(string username, string password)
         {
             var customer = new Customer();
             try
             {
-                customer = _context.Customers.Where(x => x.Username == username && x.UserPassword == password).Single();
+                customer = await _context.Customers.Where(x => x.Username == username && x.UserPassword == password).SingleOrDefaultAsync();
             }
             catch (Exception ex)
             {
@@ -59,12 +59,12 @@ namespace PhoenixTheatreAPI.Services
             return customer;
         }
 
-        public virtual Employee GetEmployeeByName(string firstName, string lastName)
+        public virtual async Task<Employee> GetEmployeeByName(string firstName, string lastName)
         {
             var employee = new Employee();
             try
             {
-                employee = _context.Employees.Where(x => x.FirstName == firstName && x.LastName == lastName).Single();
+                employee = await _context.Employees.Where(x => x.FirstName == firstName && x.LastName == lastName).SingleOrDefaultAsync();
             }
             catch (Exception ex)
             {
@@ -73,12 +73,12 @@ namespace PhoenixTheatreAPI.Services
             return employee;
         }
 
-        public virtual Employee GetEmployeeByUsername(string username, string password)
+        public virtual async Task<Employee> GetEmployeeByUsername(string username, string password)
         {
             var employee = new Employee();
             try
             {
-                employee = _context.Employees.Where(x => x.Username == username && x.UserPassword == password).Single();
+                employee = await _context.Employees.Where(x => x.Username == username && x.UserPassword == password).SingleOrDefaultAsync();
             }
             catch (Exception ex)
             {
