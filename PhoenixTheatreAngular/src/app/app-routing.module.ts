@@ -7,6 +7,7 @@ import { MyOrderHistoryComponent } from './my-order-history/my-order-history.com
 import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { MoviedateComponent } from './moviedate/moviedate.component';
 import { ShowtimeComponent } from './showtime/showtime.component';
+import { CustomerComponent } from './customer/customer.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'login', component: LoginScreenComponent},
   { path: 'shoppingcart', component: ShoppingcartComponent },
   { path: 'my-order-history', component: MyOrderHistoryComponent },
-  { path: 'showtime/:id', component: ShowtimeComponent}
+  { path: 'showtime/:id', component: ShowtimeComponent},
+  { path: '/customers', component: CustomerComponent},
 ];
 
 @NgModule({

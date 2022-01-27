@@ -23,6 +23,7 @@ import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { MyOrderHistoryComponent } from './my-order-history/my-order-history.component';
 import { MoviedateComponent } from './moviedate/moviedate.component';
 import { ShowtimeComponent } from './showtime/showtime.component';
+import { CustomerComponent } from './customer/customer.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ShowtimeComponent } from './showtime/showtime.component';
     ShoppingcartComponent,
     MyOrderHistoryComponent,
     MoviedateComponent,
-    ShowtimeComponent
+    ShowtimeComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,
