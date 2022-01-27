@@ -1,7 +1,19 @@
 using PhoenixTheatre.DataInfrastructure;
 using PhoenixTheatreAPI.Services;
 
+var PTSpecificOrigins = "_PTSpecificOrigins";
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: PTSpecificOrigins,
+                      builder =>
+                      {
+                          builder.WithOrigins("http://phoenixtheatre.azurewebsites.net",
+                                               "https://phoenixtheatre.azurewebsites.net");
+                      });
+});
 
 string connectionString = builder.Configuration.GetConnectionString("ConnectionStringPTDB");
 
@@ -26,6 +38,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(PTSpecificOrigins);
 
 app.UseAuthorization();
 
