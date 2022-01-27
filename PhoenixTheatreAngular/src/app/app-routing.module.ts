@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'my-order-history', component: MyOrderHistoryComponent },
   { path: 'showtime/:id', component: ShowtimeComponent},
   { path: 'customers', component: CustomerComponent},
+  { path: 'PhoenixTheatre/filmShowings', component: MoviesComponent},
 ];
 
 @NgModule({

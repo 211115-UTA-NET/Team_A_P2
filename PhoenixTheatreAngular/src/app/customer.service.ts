@@ -8,11 +8,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CustomerService {
-  private customerUrl = environment.serverUrl;
+  private customerUrl = 'localhost:4200/PhoenixTheatre/customer';
   constructor(private http: HttpClient) { }
 
   getCustomers(): Observable<Customer[]> {
     return this.http.get<Customer[]>(this.customerUrl)
+  };
+
+  getCustomerByName(firstName: string, lastName: string):
+   Observable<Customer> {
+    return this.http.get<Customer>(this.customerUrl)
   };
 
   // guess this is the proof of concept but still
