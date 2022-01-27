@@ -16,15 +16,15 @@ namespace PhoenixTheatreAPI.Controllers
         }
 
         [HttpGet("filmShowings")]
-        public IEnumerable<FilmShowing> GetAllFilmShowings()
+        public async Task<IEnumerable<FilmShowing>> GetAllFilmShowings()
         {
-            return _service.GetAllFilmShowings();
+            return await _service.GetAllFilmShowings();
         }
 
         [HttpGet("orderId")]
-        public ActionResult<CustomerOrder> GetOrderById(Guid orderId)
+        public async Task<ActionResult<CustomerOrder>> GetOrderById(Guid orderId)
         {
-            var order = _service.GetOrderById(orderId);
+            var order = await _service.GetOrderById(orderId);
 
             if(order != null)
             {
@@ -37,9 +37,9 @@ namespace PhoenixTheatreAPI.Controllers
         }
 
         [HttpGet("customer")]
-        public ActionResult<Customer> GetCustomerByName(string firstName, string lastName)
+        public async Task<ActionResult<Customer>> GetCustomerByName(string firstName, string lastName)
         {
-            var customer = _service.GetCustomerByName(firstName, lastName);
+            var customer = await _service.GetCustomerByName(firstName, lastName);
 
             if(customer != null)
             {
@@ -53,9 +53,9 @@ namespace PhoenixTheatreAPI.Controllers
         }
 
         [HttpGet("customer/username")]
-        public ActionResult<Customer> GetCustomerByUsername(string username)
+        public async Task<ActionResult<Customer>> GetCustomerByUsername(string username, string password)
         {
-            var customer = _service.GetCustomerByUsername(username);
+            var customer = await _service.GetCustomerByUsername(username, password);
 
             if (customer != null)
             {
@@ -68,9 +68,9 @@ namespace PhoenixTheatreAPI.Controllers
         }
 
         [HttpGet("employee")]
-        public ActionResult<Employee> GetEmployeeByName(string firstName, string lastName)
+        public async Task<ActionResult<Employee>> GetEmployeeByName(string firstName, string lastName)
         {
-            var employee = _service.GetEmployeeByName(firstName, lastName);
+            var employee = await _service.GetEmployeeByName(firstName, lastName);
             if(employee != null)
             {
                 return employee;
@@ -82,9 +82,9 @@ namespace PhoenixTheatreAPI.Controllers
         }
 
         [HttpGet("employee/username")]
-        public ActionResult<Employee> GetEmployeeByUsername(string username)
+        public async Task<ActionResult<Employee>> GetEmployeeByUsername(string username, string password)
         {
-            var employee = _service.GetEmployeeByUsername(username);
+            var employee = await _service.GetEmployeeByUsername(username, password);
 
             if (employee != null)
             {
@@ -129,13 +129,13 @@ namespace PhoenixTheatreAPI.Controllers
         }
 
         [HttpPost("{order}")]
-        public IActionResult CreateOrder(string username, int theatreId, List<InvoiceLineItem> invoiceLineItems)
+        public IActionResult CreateOrder(string username, string password, int theatreId, List<InvoiceLineItem> invoiceLineItems)
         {
-            var customer = GetCustomerByUsername(username);
+            var customer = GetCustomerByUsername(username, password);
             CustomerOrder newOrder = new CustomerOrder
             {
                 OrderId = Guid.NewGuid(),
-                CustomerId = customer.Value.CustomerId,
+                CustomerId = customer.Result.Value.CustomerId,
                 TheatreId = theatreId,
             };
             throw new NotImplementedException();

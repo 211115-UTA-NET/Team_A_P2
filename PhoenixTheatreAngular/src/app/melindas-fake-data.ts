@@ -1,4 +1,4 @@
-import { Movie, Showtime, Tickets } from './mytypes';
+import { Movie, SelectionAmounts, Showtime, Tickets } from './mytypes';
 
 export const fakeMovie: Movie[] = [{
     filmId: 1,
@@ -27,6 +27,27 @@ export const fakeMovie: Movie[] = [{
     filmDuration: 120,
     image: 'https://images.unsplash.com/photo-1639485420052-dc3dfe222959?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Y2FzbHRlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'
 },];
+
+export const fakeTicketSelectionAmounts: SelectionAmounts[] = [
+{
+    option: 1,
+    amount: 1
+},
+{
+    option: 2,
+    amount: 2
+},
+{
+    option: 3,
+    amount: 3
+},
+{
+    option: 4,
+    amount: 4
+},{
+    option: 5,
+    amount: 5
+}];
 
 export const fakeTickets: Tickets[] = [
 {

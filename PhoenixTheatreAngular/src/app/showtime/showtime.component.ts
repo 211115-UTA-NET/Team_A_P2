@@ -12,6 +12,11 @@ import { MovieService } from '../movie.service';
 })
 export class ShowtimeComponent implements OnInit {
   showTime: Showtime | undefined;
+  amountSelected: number = 0;
+
+  amountChanged (event: any) {
+    this.amountSelected = event.target.value;
+  }
 
   getTickets(): void {
     this.movieService.getTickets().subscribe(tickets => this.tickets = tickets);
@@ -27,6 +32,7 @@ export class ShowtimeComponent implements OnInit {
   constructor(private route: ActivatedRoute, private location: Location, private movieService: MovieService) { }
 
   ngOnInit(): void {
+    console.log(this.amountSelected);
     this.getShowTime();
     this.getTickets();
     this.getMovies();

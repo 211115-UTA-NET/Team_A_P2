@@ -25,3 +25,8 @@ export interface Customer {
     firstName: string,
     lastName: string,
 }
+
+export interface SelectionAmounts {
+    option: number,
+    amount: number,
+}
