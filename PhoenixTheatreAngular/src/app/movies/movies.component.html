@@ -1,5 +1,7 @@
+<button class="moviedate" *ngFor="let date of weekdays" mat-raised-button >{{month}}-{{date}}-{{year}}</button>
+
 <mat-tab-group>
-<mat-tab *ngFor="let date of weekdays" label="{{month}}-{{date}}-{{year}}">
+<mat-tab  *ngFor="let date of weekdays" label="{{month}}-{{date}}-{{year}}">
   <mat-card class="movie-card" *ngFor="let movie of movies">
       <mat-card-title-group>
         <mat-card-title><a routerLink="/movie/{{movie.filmId}}">{{movie.filmName}}</a></mat-card-title>
@@ -12,7 +14,7 @@
         <mat-card-actions>
           <span *ngFor="let showtime of showtimes">
             <span *ngIf="showtime.filmId==movie.filmId && date==showtime.showDate.getDate()">
-              <button class="movietime" mat-button><div>{{showtime.showTime}}</div></button>
+              <button class="movietime" mat-raised-button><div>{{showtime.showTime}}</div></button>
             </span>
           </span>
           </mat-card-actions>

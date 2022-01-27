@@ -1,16 +1,19 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MovieDescriptionComponent } from './movie-description/movie-description.component';
 import { MoviesComponent } from './movies/movies.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { MyOrderHistoryComponent } from './my-order-history/my-order-history.component';
 import { LoginScreenComponent } from './login-screen/login-screen.component';
+import { MoviedateComponent } from './moviedate/moviedate.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/movies', pathMatch: 'full' },
-  { path: 'login', component: LoginScreenComponent},
   { path: 'movies', component: MoviesComponent, pathMatch: 'full' },
-  { path: 'movie/:filmId', component: MovieDescriptionComponent },
+  { path: 'movie/:id', component: MovieDescriptionComponent },
+  { path: 'moviedate/:id', component: MoviedateComponent},
+  { path: 'login', component: LoginScreenComponent},
   { path: 'shoppingcart', component: ShoppingcartComponent },
   { path: 'my-order-history', component: MyOrderHistoryComponent }
 ];

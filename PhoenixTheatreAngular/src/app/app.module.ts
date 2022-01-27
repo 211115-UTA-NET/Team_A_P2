@@ -17,6 +17,7 @@ import { MoviesComponent } from './movies/movies.component';
 import { MovieDescriptionComponent } from './movie-description/movie-description.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { MyOrderHistoryComponent } from './my-order-history/my-order-history.component';
+import { MoviedateComponent } from './moviedate/moviedate.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MyOrderHistoryComponent } from './my-order-history/my-order-history.com
     MoviesComponent,
     MovieDescriptionComponent,
     ShoppingcartComponent,
-    MyOrderHistoryComponent
+    MyOrderHistoryComponent,
+    MoviedateComponent
   ],
   imports: [
     BrowserModule,

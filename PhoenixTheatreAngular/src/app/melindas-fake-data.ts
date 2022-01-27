@@ -26,7 +26,8 @@ export const fakeMovie: Movie[] = [{
     filmDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non enim praesent elementum facilisis leo vel fringilla est. Auctor elit sed vulputate mi sit amet mauris commodo.',
     filmDuration: 120,
     image: 'https://images.unsplash.com/photo-1639485420052-dc3dfe222959?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Y2FzbHRlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'
-}];
+},];
+
 
 export const fakeShowtime: Showtime[] = [{
     filmShowingsId: 1,
@@ -40,7 +41,7 @@ export const fakeShowtime: Showtime[] = [{
     filmShowingsId: 2,
     theatreId: 1,
     filmId: 1,
-    showDate: new Date(2022, 1 ,28),
+    showDate: new Date(2022, 1 ,29),
     showTime: '1:00p',
     ticketsAvailable: 50
 },
@@ -88,7 +89,7 @@ export const fakeShowtime: Showtime[] = [{
     filmShowingsId: 8,
     theatreId: 1,
     filmId: 3,
-    showDate: new Date(),
+    showDate: new Date(2022, 1 ,28),
     showTime: '7:30p',
     ticketsAvailable: 50
 },
@@ -96,7 +97,7 @@ export const fakeShowtime: Showtime[] = [{
     filmShowingsId: 9,
     theatreId: 1,
     filmId: 3,
-    showDate: new Date(2022, 1 ,28),
+    showDate: new Date(2022, 1 ,29),
     showTime: '8:30p',
     ticketsAvailable: 50
 }];
