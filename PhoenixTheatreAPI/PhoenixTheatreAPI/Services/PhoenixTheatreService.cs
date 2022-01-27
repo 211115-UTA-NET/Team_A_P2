@@ -14,7 +14,6 @@ namespace PhoenixTheatreAPI.Services
 
         public virtual IEnumerable<FilmShowing> GetAllFilmShowings()
         {
-//            var filmLocation = from
             return _context.FilmShowings.AsNoTracking().ToList();
         }
 
@@ -46,12 +45,12 @@ namespace PhoenixTheatreAPI.Services
             return customer;
         }
 
-        public virtual Customer GetCustomerByUsername(string username)
+        public virtual Customer GetCustomerByUsername(string username, string password)
         {
             var customer = new Customer();
             try
             {
-                customer = _context.Customers.Where(x => x.Username == username).Single();
+                customer = _context.Customers.Where(x => x.Username == username && x.UserPassword == password).Single();
             }
             catch (Exception ex)
             {

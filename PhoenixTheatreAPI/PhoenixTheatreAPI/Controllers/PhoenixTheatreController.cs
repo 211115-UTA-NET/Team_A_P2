@@ -53,9 +53,9 @@ namespace PhoenixTheatreAPI.Controllers
         }
 
         [HttpGet("customer/username")]
-        public ActionResult<Customer> GetCustomerByUsername(string username)
+        public ActionResult<Customer> GetCustomerByUsername(string username, string password)
         {
-            var customer = _service.GetCustomerByUsername(username);
+            var customer = _service.GetCustomerByUsername(username, password);
 
             if (customer != null)
             {

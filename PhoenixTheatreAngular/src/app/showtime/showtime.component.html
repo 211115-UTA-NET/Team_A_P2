@@ -6,7 +6,7 @@
           <mat-card-subtitle>
             {{movie.filmRating}}, {{movie.genre}}<br>
             {{movie.filmDuration}}<br>
-            {{showTime.showDate}}<br>
+            {{showTime.showDate | date}}<br>
             {{showTime.showTime}}
           </mat-card-subtitle>
           <img mat-card-xl-image src={{movie.image}} >
@@ -21,11 +21,11 @@
             {{ticket.ticketType}}
         </mat-list-item>
         <mat-list-item>
-            ${{ticket.ticketPrice}}
+            {{ticket.ticketPrice | currency}}
         </mat-list-item>
         <mat-form-field class="formOrder" appearance="fill">
             <mat-label>Amount</mat-label>
-            <mat-select>
+            <mat-select (valueChange)="amountChanged($event)">
               <mat-option value="1">1</mat-option>
               <mat-option value="2">2</mat-option>
               <mat-option value="3">3</mat-option>
@@ -35,5 +35,7 @@
           </mat-form-field>
         <mat-divider></mat-divider>
       </mat-list>
+      <a routerLink="/shoppingcart">
       <button class="showtimeNext" mat-raised-button>next</button>
+      </a>
 </div>
