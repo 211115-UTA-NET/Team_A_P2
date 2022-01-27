@@ -12,7 +12,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
@@ -23,6 +23,7 @@ import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { MyOrderHistoryComponent } from './my-order-history/my-order-history.component';
 import { MoviedateComponent } from './moviedate/moviedate.component';
 import { ShowtimeComponent } from './showtime/showtime.component';
+import { CustomerComponent } from './customer/customer.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ShowtimeComponent } from './showtime/showtime.component';
     ShoppingcartComponent,
     MyOrderHistoryComponent,
     MoviedateComponent,
-    ShowtimeComponent
+    ShowtimeComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import { ShowtimeComponent } from './showtime/showtime.component';
     MatDividerModule,
     MatListModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
