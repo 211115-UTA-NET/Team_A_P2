@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MovieDescriptionComponent } from './movie-description/movie-description.component';
 import { MoviesComponent } from './movies/movies.component';
@@ -6,6 +6,7 @@ import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { MyOrderHistoryComponent } from './my-order-history/my-order-history.component';
 import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { MoviedateComponent } from './moviedate/moviedate.component';
+import { ShowtimeComponent } from './showtime/showtime.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'moviedate/:id', component: MoviedateComponent},
   { path: 'login', component: LoginScreenComponent},
   { path: 'shoppingcart', component: ShoppingcartComponent },
-  { path: 'my-order-history', component: MyOrderHistoryComponent }
+  { path: 'my-order-history', component: MyOrderHistoryComponent },
+  { path: 'showtime/:id/:id', component: ShowtimeComponent}
 ];
 
 @NgModule({

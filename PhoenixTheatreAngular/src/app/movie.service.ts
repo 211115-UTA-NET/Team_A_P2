@@ -16,9 +16,19 @@ export class MovieService {
     return movies;
   }
 
+  // getMovie(id: string): Observable<Movie> {
+  //   const movie = fakeMovie.find(m => m.filmName === id)!;
+  //   return of(movie);
+  // }
+
   getShowTimes(): Observable<Showtime[]> {
     const showTimes = of(fakeShowtime);
     return showTimes;
+  }
+
+  getShowTime(id: string): Observable<Showtime> {
+    const showtime = fakeShowtime.find(s => s.showTime === id)!;
+    return of(showtime);
   }
 
   constructor() { }
