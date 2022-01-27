@@ -21,7 +21,7 @@
         <mat-card-actions>
           <span *ngFor="let showtime of showtimes">
             <span *ngIf="showtime.filmId==movie.filmId && date==showtime.showDate.getDate()">
-              <a routerLink="/showtime/{{movie.filmName}}/{{showtime.showTime}}">
+              <a routerLink="/showtime/{{showtime.filmShowingsId}}">
               <button class="movietime" mat-raised-button><div>{{showtime.showTime}}</div></button>
             </a>
             </span>

@@ -16,3 +16,8 @@ export interface Showtime {
     showTime: string,
     ticketsAvailable: number,
 };
+
+export interface Tickets {
+    ticketType: string,
+    ticketPrice: number,
+}

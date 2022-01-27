@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginScreenComponent},
   { path: 'shoppingcart', component: ShoppingcartComponent },
   { path: 'my-order-history', component: MyOrderHistoryComponent },
-  { path: 'showtime/:id/:id', component: ShowtimeComponent}
+  { path: 'showtime/:id', component: ShowtimeComponent}
 ];
 
 @NgModule({

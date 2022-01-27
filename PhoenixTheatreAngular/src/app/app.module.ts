@@ -8,6 +8,10 @@ import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +23,7 @@ import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { MyOrderHistoryComponent } from './my-order-history/my-order-history.component';
 import { MoviedateComponent } from './moviedate/moviedate.component';
 import { ShowtimeComponent } from './showtime/showtime.component';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +47,11 @@ import { ShowtimeComponent } from './showtime/showtime.component';
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonToggleModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDividerModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

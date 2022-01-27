@@ -1,4 +1,4 @@
-import { Movie, Showtime } from './mytypes';
+import { Movie, Showtime, Tickets } from './mytypes';
 
 export const fakeMovie: Movie[] = [{
     filmId: 1,
@@ -28,6 +28,27 @@ export const fakeMovie: Movie[] = [{
     image: 'https://images.unsplash.com/photo-1639485420052-dc3dfe222959?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Y2FzbHRlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'
 },];
 
+export const fakeTickets: Tickets[] = [
+{
+    ticketType: 'Children(ages 3-11)',
+    ticketPrice: 7.75 
+},
+{
+    ticketType: 'Adults (ages 12 & up)', 
+    ticketPrice: 12.75
+},
+{
+    ticketType: 'Seniors (ages 60+)',
+    ticketPrice: 7.75
+},
+{
+    ticketType: 'Military Discount (with valid ID)',
+    ticketPrice: 7.75
+},
+{
+    ticketType: 'Student Discount (with valid ID)',
+    ticketPrice: 9.75
+}];
 
 export const fakeShowtime: Showtime[] = [{
     filmShowingsId: 1,
@@ -41,7 +62,7 @@ export const fakeShowtime: Showtime[] = [{
     filmShowingsId: 2,
     theatreId: 1,
     filmId: 1,
-    showDate: new Date(2022, 1 ,29),
+    showDate: new Date(),
     showTime: '1:00p',
     ticketsAvailable: 50
 },
@@ -73,7 +94,7 @@ export const fakeShowtime: Showtime[] = [{
     filmShowingsId: 6,
     theatreId: 1,
     filmId: 2,
-    showDate: new Date(2022, 1 ,27),
+    showDate: new Date(),
     showTime: '5:30p',
     ticketsAvailable: 50
 },
@@ -89,7 +110,7 @@ export const fakeShowtime: Showtime[] = [{
     filmShowingsId: 8,
     theatreId: 1,
     filmId: 3,
-    showDate: new Date(2022, 1 ,28),
+    showDate: new Date(),
     showTime: '7:30p',
     ticketsAvailable: 50
 },
@@ -97,7 +118,7 @@ export const fakeShowtime: Showtime[] = [{
     filmShowingsId: 9,
     theatreId: 1,
     filmId: 3,
-    showDate: new Date(2022, 1 ,29),
+    showDate: new Date(),
     showTime: '8:30p',
     ticketsAvailable: 50
 }];
