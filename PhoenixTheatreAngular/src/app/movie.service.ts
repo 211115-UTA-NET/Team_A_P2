@@ -29,8 +29,6 @@ export class MovieService {
 
   private url = "https://phoenixtheatreapionline.azurewebsites.net/PhoenixTheatre/movies";
 
-//  private url = "https://phoenixtheatreapi.azurewebsites.net";
-
 
   getMovies(): Observable<Movie[]> {
     return this.http.get<Movie[]>(this.url);
