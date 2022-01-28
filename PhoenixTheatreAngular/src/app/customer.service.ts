@@ -9,6 +9,12 @@ import { Observable } from 'rxjs';
 })
 export class CustomerService {
   private customerUrl = 'localhost:4200/PhoenixTheatre/customer';
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'text/plain',
+      'Access-Control-Allow-Origin': 'https://phoenixtheatre.azurewebsites.net'
+    })
+  };
   constructor(private http: HttpClient) { }
 
   getCustomers(): Observable<Customer[]> {
