@@ -17,7 +17,7 @@ import { fakeTicketSelectionAmounts } from './melindas-fake-data';
 export class MovieService {
   private httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'text/plain',
+      'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': 'https://phoenixtheatre.azurewebsites.net'
     })
   };

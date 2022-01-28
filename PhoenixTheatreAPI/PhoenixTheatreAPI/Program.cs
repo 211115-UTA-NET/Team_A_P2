@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using PhoenixTheatre.DataInfrastructure;
 using PhoenixTheatreAPI.Services;
 
@@ -20,7 +21,11 @@ builder.Services.AddCors(options =>
             .AllowCredentials());
 });
 
-builder.Services.AddSqlServer<Team_A_P2Context>(connectionString);
+builder.Services.AddDbContext<Team_A_P2Context>(options =>
+{
+
+    options.UseSqlServer(connectionString);
+});
 
 // Add services to the container.
 
