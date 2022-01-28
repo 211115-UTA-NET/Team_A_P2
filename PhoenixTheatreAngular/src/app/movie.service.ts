@@ -27,13 +27,13 @@ export class MovieService {
     return amounts;
   }
 
-//  private url = "https://localhost:7291/PhoenixTheatre/movies";
-    private url = "https://phoenixtheatreapi.azurewebsites.net/movies";
+  private url = "https://phoenixtheatreapi.azurewebsites.net/movies";
+
 //  private url = "https://phoenixtheatreapi.azurewebsites.net";
 
 
   getMovies(): Observable<Movie[]> {
-    return this.http.get<Movie[]>(this.url);
+    return this.http.get<Movie[]>(this.url, this.httpOptions);
   }
 
   getMovie(id: string): Observable<Movie> {

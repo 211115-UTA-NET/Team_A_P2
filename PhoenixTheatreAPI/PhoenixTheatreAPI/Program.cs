@@ -12,7 +12,7 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(builder =>
         builder
             .WithOrigins("http://phoenixtheatre.azurewebsites.net",
-                         "https://phoenixtheatre.azurewebsites.net" +
+                         "https://phoenixtheatre.azurewebsites.net",
                          "http://phoenixtheatre.azurewebsites.net/movies",
                          "http://localhost:4200")
             .AllowAnyMethod()
@@ -41,7 +41,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
+
 app.UseRouting();
 
 app.UseCors();
