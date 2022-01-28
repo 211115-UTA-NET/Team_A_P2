@@ -86,8 +86,8 @@ CREATE TABLE FilmShowings
 	FilmShowingsId INT IDENTITY(1,1) PRIMARY KEY,
 	TheatreId INT FOREIGN KEY REFERENCES Theatre(TheatreId) NOT NULL,
 	FilmId INT FOREIGN KEY REFERENCES TheatreFilms(FilmId) NOT NULL,
-	ShowDate DATETIME NOT NULL,
-	Showtime DATETIME NOT NULL,
+	ShowDate DATE DEFAULT GETDATE() NOT NULL,
+	Showtime VARCHAR(10) NOT NULL,
 	TicketsAvailable INT NOT NULL
 );
 
@@ -157,15 +157,16 @@ INSERT INTO FilmShowings
 (
 	TheatreId,
 	FilmId,
-	ShowDate,
 	Showtime,
 	TicketsAvailable
 )
 VALUES
-	(1, 1, '2021-01-22', '12:00:00', 40),
-	(1, 2, '2021-01-22', '12:00:00', 40),
-	(1, 3, '2021-01-22', '12:00:00', 40);
-
+	(1, 1, '12:00pm', 40),
+	(1, 2, '12:00pm', 40),
+	(1, 3, '12:00pm', 40),
+	(1, 1, '1:00pm', 40),
+	(1, 2, '1:00pm', 40),
+	(1, 3, '1:00pm', 40);
 
 
 SELECT * FROM Customer;

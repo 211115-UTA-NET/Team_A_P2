@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PhoenixTheatre.DataInfrastructure;
 
 namespace PhoenixTheatreAPI.Services
@@ -17,7 +18,7 @@ namespace PhoenixTheatreAPI.Services
             return await _context.FilmShowings.AsNoTracking().ToListAsync();
         }
 
-        internal async Task<IEnumerable<TheatreFilm>> GetAllTheatreFilms()
+        public async Task<IEnumerable<TheatreFilm>> GetAllTheatreFilms()
         {
             return await _context.TheatreFilms.AsNoTracking().ToListAsync();
         }
@@ -34,6 +35,11 @@ namespace PhoenixTheatreAPI.Services
                 return null;
             }
             return order;
+        }
+
+        internal async Task<IEnumerable<Ticket>> GetTickets()
+        {
+            return await _context.Tickets.AsNoTracking().ToListAsync();
         }
 
         public virtual async Task<Customer> GetCustomerByName(string firstName, string lastName)

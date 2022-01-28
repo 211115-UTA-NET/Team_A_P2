@@ -27,6 +27,12 @@ namespace PhoenixTheatreAPI.Controllers
             return await _service.GetAllTheatreFilms();
         }
 
+        [HttpGet("ticket")]
+        public async Task<IEnumerable<Ticket>> GetTickets()
+        {
+            return await _service.GetTickets();
+        }
+
         [HttpGet("orderId")]
         public async Task<ActionResult<CustomerOrder>> GetOrderById(Guid orderId)
         {
