@@ -16,9 +16,9 @@ namespace PhoenixTheatreAPI.Controllers
         }
 
         [HttpGet("filmShowings")]
-        public async Task<IEnumerable<FilmShowing>> GetAllFilmShowings()
+        public IEnumerable<FilmShowing> GetAllFilmShowings()
         {
-            return await _service.GetAllFilmShowings();
+            return _service.GetAllFilmShowings();
         }
 
         [HttpGet("movies")]
@@ -49,9 +49,9 @@ namespace PhoenixTheatreAPI.Controllers
         }
 
         [HttpGet("customer")]
-        public async Task<ActionResult<Customer>> GetCustomerByName(string firstName, string lastName)
+        public ActionResult<Customer> GetCustomerByName(string firstName, string lastName)
         {
-            var customer = await _service.GetCustomerByName(firstName, lastName);
+            var customer = _service.GetCustomerByName(firstName, lastName);
 
             if(customer != null)
             {
@@ -80,16 +80,16 @@ namespace PhoenixTheatreAPI.Controllers
         }
 
         [HttpGet("employee")]
-        public async Task<ActionResult<Employee>> GetEmployeeByName(string firstName, string lastName)
+        public Employee GetEmployeeByName(string firstName, string lastName)
         {
-            var employee = await _service.GetEmployeeByName(firstName, lastName);
+            var employee = _service.GetEmployeeByName(firstName, lastName);
             if(employee != null)
             {
                 return employee;
             }
             else
             {
-                return NotFound();
+                return null;
             }
         }
 
