@@ -1,7 +1,8 @@
 import { Component} from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 
-import { logins } from '../TempLogin';
+import { TempLogin } from '../TempLogin';
+import { TempNewCustomer } from '../TempCustomer';
+import { MyhttpService } from '../myhttp.service';
 
 @Component({
   selector: 'app-login-screen',
@@ -13,19 +14,12 @@ export class LoginScreenComponent{
   showNew:boolean = false;
   showReturn:boolean = false;
   
-  getNewCustomer = this.formBuilder.group({
-    fname: '',
-    lname: '',
-    username: '',
-    password: ''
-  });
+  User: TempLogin[] = [];
+  customer: TempNewCustomer[] = [];
 
-  getUserLogin = this.formBuilder.group({
-    username: '',
-    password: ''
-  });
-  
-  constructor(private formBuilder:FormBuilder) 
+  constructor(
+    private service: MyhttpService
+  ) 
   {
     
   }
@@ -52,11 +46,20 @@ export class LoginScreenComponent{
     this.showReturn = false;
   }
 
-  onSubmitCustomer(): void{
+  onSubmitCustomer(fname:string, lname:string, username:string, password:string): void{
 
   }
 
-  onSubmitUser(): void{
+  onSubmitUser(username:string, password:string) {
+    this.User = [{
+      Username: username,
+      Password: password
+    }]
 
+    this.service.getUserInfo(this.User[0].Username)
+      .then((getCustomer) => { this.customer = getCustomer; });
+      
+      // alert(this.customer[0].FirstName + "\n" + this.customer[0].LastName+ "\n" + 
+      //       this.customer[0].Username + "\n" + this.customer[0].Password);
   }
 }

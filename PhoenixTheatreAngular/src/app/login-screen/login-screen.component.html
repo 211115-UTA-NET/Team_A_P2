@@ -16,17 +16,17 @@
             New Customer Infomation
         </h2>
         <h3>
-            <form [formGroup]="getNewCustomer" (ngSubmit)="onSubmitCustomer">
-                <label for="fname">First Name:</label><br>
-                <input type="text" id="fname" formControlName="fname"><br><br>
-                <label for="lname">Last Name:</label><br>
-                <input type="text" id="lname" formControlName="lname"><br><br>
-                <label for="username">Username:</label><br>
-                <input type="text" id="username" formControlName="username"><br><br>
-                <label for="password">Password:</label><br>
-                <input type="password" id="password" formControlName="password"><br><br>
-                <button class="button" type="submit">Sign Up</button><br>
-            </form>
+            
+            <label for="fname">First Name:</label><br>
+            <input type="text" id="fname" name="fname" #fname><br>
+            <label for="lname">Last Name:</label><br>
+            <input type="text" id="lname" name="lname" #lname><br>
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" #username><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" #password><br>
+            <button class="button" type="submit" (click)="onSubmitCustomer(fname.value, lname.value, username.value, password.value)">Sign Up</button><br>
+            
             <button class="login" (click)="Back()">Back</button>
         </h3>
     </div>
@@ -35,16 +35,13 @@
     <div *ngIf="showReturn">
         <h2>Login</h2>
         <h3>
-            <form [formGroup]="getUserLogin" (ngSubmit)="onSubmitUser()">
-                <label for="username">Username:</label><br>
-                <input type="text" id="username" name="username" required>
-                <br><br>
-                <label for="password">Password:</label><br>
-                <input type="password" id="pasword" name="password" required><br><br>
-                <button class="button" type="submit">Login</button><br>
-            </form>
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" #username required>
+            <br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="pasword" name="password" #password required><br>
+            <button class="button" type="submit" (click)="onSubmitUser(username.value, password.value)">Login</button><br>
             <button class="login" (click)="Back()">Back</button>
-
         </h3>
     </div>
 </div>
