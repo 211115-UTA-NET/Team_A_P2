@@ -27,12 +27,11 @@ export class MovieService {
     return amounts;
   }
 
-  //  private url = "https://localhost:7291/PhoenixTheatre/movies";
-  //  private urlTickets ="https://localhost:7291/PhoenixTheatre/ticket";
+   private url = "https://localhost:7291/PhoenixTheatre/movies";
   // private urlShowings = "https://localhost:7291/PhoenixTheatre/filmShowings";
   
- private url = "https://phoenixtheatreapi20220128091526.azurewebsites.net/PhoenixTheatre/movies";
- private urlTickets ="https://phoenixtheatreapi20220128091526.azurewebsites.net/PhoenixTheatre/ticket";
+ //private url = "https://phoenixtheatreapi20220128091526.azurewebsites.net/PhoenixTheatre/movies";
+
 
   getMovies(): Observable<Movie[]> {
     return this.http.get<Movie[]>(this.url, this.httpOptions);
@@ -53,8 +52,10 @@ export class MovieService {
     return of(showtime);
   }
 
+  
   getTickets(): Observable<Tickets[]> {
-    return this.http.get<Tickets[]>(this.urlTickets, this.httpOptions);
+    const tickets = of(fakeTickets);
+    return tickets;
   }
 
   constructor(private http: HttpClient) { }
