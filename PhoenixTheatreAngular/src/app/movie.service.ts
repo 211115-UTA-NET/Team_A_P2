@@ -30,7 +30,7 @@ export class MovieService {
   // private url = "https://localhost:7291/PhoenixTheatre/movies";
   // private urlShowings = "https://localhost:7291/PhoenixTheatre/filmShowings";
   
- private url = "https://phoenixtheatreapionline.azurewebsites.net/PhoenixTheatre/movies";
+ private url = "https://phoenixtheatreapi20220128091526.azurewebsites.net/PhoenixTheatre/movies";
 
 
   getMovies(): Observable<Movie[]> {
