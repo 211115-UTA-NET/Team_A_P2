@@ -24,7 +24,6 @@ namespace PhoenixTheatreAPI.Controllers
         [HttpGet("movies")]
         public async Task<IEnumerable<TheatreFilm>> GetAllTheatreFilms()
         {
-            Response.Headers.Add("Access-Control-Allow-Origin", "*");
             return await _service.GetAllTheatreFilms();
         }
 
