@@ -15,7 +15,7 @@ export interface Showtime {
     theatreId: number,
     filmId: number,
     showDate: Date,
-    showTime: string,
+    showtime: string,
     ticketsAvailable: number,
 };
 

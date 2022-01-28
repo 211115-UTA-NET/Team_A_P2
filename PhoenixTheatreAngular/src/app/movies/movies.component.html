@@ -19,7 +19,7 @@
           <span *ngFor="let showtime of showtimes">
             <span *ngIf="showtime.filmId==movie.filmId && date==showtime.showDate.getDate()">
               <a routerLink="/showtime/{{showtime.filmShowingsId}}">
-                <button class="movietime" mat-raised-button><div>{{showtime.showTime}}</div></button>
+                <button class="movietime" mat-raised-button><div>{{showtime.showtime}}</div></button>
               </a>
             </span>
           </span>

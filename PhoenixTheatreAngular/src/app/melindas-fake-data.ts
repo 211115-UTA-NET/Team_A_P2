@@ -80,7 +80,7 @@ export const fakeShowtime: Showtime[] = [{
     theatreId: 1,
     filmId: 1,
     showDate: new Date(),
-    showTime: '12:30p',
+    showtime: '12:30p',
     ticketsAvailable: 50
 },
 {
@@ -88,7 +88,7 @@ export const fakeShowtime: Showtime[] = [{
     theatreId: 1,
     filmId: 1,
     showDate: new Date(),
-    showTime: '1:00p',
+    showtime: '1:00p',
     ticketsAvailable: 50
 },
 {
@@ -96,7 +96,7 @@ export const fakeShowtime: Showtime[] = [{
     theatreId: 1,
     filmId: 1,
     showDate: new Date(),
-    showTime: '5:30p',
+    showtime: '5:30p',
     ticketsAvailable: 50
 },
 {
@@ -104,7 +104,7 @@ export const fakeShowtime: Showtime[] = [{
     theatreId: 1,
     filmId: 2,
     showDate: new Date(),
-    showTime: '12:30p',
+    showtime: '12:30p',
     ticketsAvailable: 50
 },
 {
@@ -112,7 +112,7 @@ export const fakeShowtime: Showtime[] = [{
     theatreId: 1,
     filmId: 2,
     showDate: new Date(),
-    showTime: '1:00p',
+    showtime: '1:00p',
     ticketsAvailable: 50
 },
 {
@@ -120,7 +120,7 @@ export const fakeShowtime: Showtime[] = [{
     theatreId: 1,
     filmId: 2,
     showDate: new Date(),
-    showTime: '5:30p',
+    showtime: '5:30p',
     ticketsAvailable: 50
 },
 {
@@ -128,7 +128,7 @@ export const fakeShowtime: Showtime[] = [{
     theatreId: 1,
     filmId: 2,
     showDate: new Date(),
-    showTime: '7:30p',
+    showtime: '7:30p',
     ticketsAvailable: 50
 },
 {
@@ -136,7 +136,7 @@ export const fakeShowtime: Showtime[] = [{
     theatreId: 1,
     filmId: 3,
     showDate: new Date(),
-    showTime: '7:30p',
+    showtime: '7:30p',
     ticketsAvailable: 50
 },
 {
@@ -144,6 +144,6 @@ export const fakeShowtime: Showtime[] = [{
     theatreId: 1,
     filmId: 3,
     showDate: new Date(),
-    showTime: '8:30p',
+    showtime: '8:30p',
     ticketsAvailable: 50
 }];
