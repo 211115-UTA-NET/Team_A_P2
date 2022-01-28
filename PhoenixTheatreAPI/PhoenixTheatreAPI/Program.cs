@@ -15,7 +15,7 @@ builder.Services.AddCors(options =>
             .WithOrigins("http://phoenixtheatre.azurewebsites.net",
                          "https://phoenixtheatre.azurewebsites.net",
                          "http://phoenixtheatre.azurewebsites.net/movies",
-                         "http://localhost:4200")
+                         "http://68.15.247.30")
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials());
