@@ -38,13 +38,14 @@ CREATE TABLE TheatreFilms
 	FilmRating NVARCHAR(5) NOT NULL,
 	Genre NVARCHAR(100) NOT NULL,
 	FilmDescription NVARCHAR(300) NOT NULL,
-	FilmDuration INT NOT NULL
+	FilmDuration INT NOT NULL,
+	ImageUrl VARCHAR(300) NOT NULL
 );
 
 CREATE TABLE Theatre
 (
 	TheatreId INT IDENTITY(1,1) PRIMARY KEY,
-	TheatreLocation NVARCHAR(100),
+	TheatreLocation NVARCHAR(100) NOT NULL,
 );
 
 CREATE TABLE Employee
@@ -55,14 +56,14 @@ CREATE TABLE Employee
 	Username NVARCHAR(100) NOT NULL UNIQUE,
 	UserPassword NVARCHAR(200) NOT NULL,
 	IsManager NVARCHAR(3) NOT NULL,
-	TheatreId INT FOREIGN KEY REFERENCES Theatre(TheatreId)
+	TheatreId INT FOREIGN KEY REFERENCES Theatre(TheatreId) NOT NULL
 );
 
 CREATE TABLE CustomerOrder
 (
 	OrderId UNIQUEIDENTIFIER PRIMARY KEY,
-	CustomerId UNIQUEIDENTIFIER FOREIGN KEY REFERENCES Customer(CustomerId),
-	TheatreId INT FOREIGN KEY REFERENCES Theatre(TheatreId),
+	CustomerId UNIQUEIDENTIFIER FOREIGN KEY REFERENCES Customer(CustomerId) NOT NULL,
+	TheatreId INT FOREIGN KEY REFERENCES Theatre(TheatreId) NOT NULL,
 	TotalPrice MONEY NOT NULL
 );
 
@@ -75,19 +76,19 @@ CREATE TABLE Tickets
 CREATE TABLE InvoiceLineItem
 (
 	InvoiceId INT IDENTITY(1,1) PRIMARY KEY,
-	OrderId UNIQUEIDENTIFIER FOREIGN KEY REFERENCES CustomerOrder(OrderId),
-	TicketType NVARCHAR(100) FOREIGN KEY REFERENCES Tickets(TicketType),
+	OrderId UNIQUEIDENTIFIER FOREIGN KEY REFERENCES CustomerOrder(OrderId) NOT NULL,
+	TicketType NVARCHAR(100) FOREIGN KEY REFERENCES Tickets(TicketType) NOT NULL,
 	Quantity INT NOT NULL
 );
 
 CREATE TABLE FilmShowings
 (
 	FilmShowingsId INT IDENTITY(1,1) PRIMARY KEY,
-	TheatreId INT FOREIGN KEY REFERENCES Theatre(TheatreId),
-	FilmId INT FOREIGN KEY REFERENCES TheatreFilms(FilmId),
-	ShowDate DATETIME,
-	Showtime DATETIME,
-	TicketsAvailable INT NOT NULL,
+	TheatreId INT FOREIGN KEY REFERENCES Theatre(TheatreId) NOT NULL,
+	FilmId INT FOREIGN KEY REFERENCES TheatreFilms(FilmId) NOT NULL,
+	ShowDate DATETIME NOT NULL,
+	Showtime DATETIME NOT NULL,
+	TicketsAvailable INT NOT NULL
 );
 
 
@@ -101,7 +102,8 @@ INSERT INTO Customer
 	UserPassword
 )
 VALUES
-	('John', 'Doe', 'jdoe','P@ssword!');
+	('John', 'Doe', 'jdoe','P@ssword!'),
+	('Melinda', 'Waggoner', 'mwaggoner', 'P@ssword!');
 
 INSERT INTO TheatreFilms
 (
@@ -109,12 +111,13 @@ INSERT INTO TheatreFilms
 	FilmRating,
 	Genre,
 	FilmDescription,
-	FilmDuration
+	FilmDuration,
+	ImageUrl
 )
 VALUES
-	('Assassin With Wings', 'PG-13', 'Adventure', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 101),
-	('Castle Without Hope', 'PG-13', 'Drama', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 120),
-	('Paladins and Mages', 'PG', 'Fantasy', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 96);
+	('Assassin With Wings', 'PG-13', 'Adventure', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 101, 'https://images.unsplash.com/photo-1643123237307-fbbc66a1a37d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80'),
+	('Castle Without Hope', 'PG-13', 'Drama', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 120, 'https://images.unsplash.com/photo-1643123237307-fbbc66a1a37d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80'),
+	('Paladins and Mages', 'PG', 'Fantasy', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 96, 'https://images.unsplash.com/photo-1639485420052-dc3dfe222959?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Y2FzbHRlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60');
 
 INSERT INTO Theatre
 (

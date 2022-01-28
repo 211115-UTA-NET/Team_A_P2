@@ -13,7 +13,7 @@ namespace PhoenixTheatre.DataInfrastructure
         }
 
         public int TheatreId { get; set; }
-        public string? TheatreLocation { get; set; }
+        public string TheatreLocation { get; set; } = null!;
 
         public virtual ICollection<CustomerOrder> CustomerOrders { get; set; }
         public virtual ICollection<Employee> Employees { get; set; }

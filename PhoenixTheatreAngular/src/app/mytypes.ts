@@ -1,3 +1,4 @@
+
 export interface Movie {
     filmId: number,
     filmName: string,
@@ -5,8 +6,9 @@ export interface Movie {
     genre: string,
     filmDescription: string,
     filmDuration: number,
-    image: string,
+    imageUrl: string,
 }
+
 
 export interface Showtime {
     filmShowingsId: number,

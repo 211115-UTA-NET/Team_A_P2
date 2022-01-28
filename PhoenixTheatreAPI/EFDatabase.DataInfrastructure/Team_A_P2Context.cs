@@ -31,7 +31,7 @@ namespace PhoenixTheatre.DataInfrastructure
             {
                 entity.ToTable("Customer");
 
-                entity.HasIndex(e => e.Username, "UQ__Customer__536C85E492D7BE37")
+                entity.HasIndex(e => e.Username, "UQ__Customer__536C85E42F9DEB3B")
                     .IsUnique();
 
                 entity.Property(e => e.CustomerId).HasDefaultValueSql("(newid())");
@@ -48,7 +48,7 @@ namespace PhoenixTheatre.DataInfrastructure
             modelBuilder.Entity<CustomerOrder>(entity =>
             {
                 entity.HasKey(e => e.OrderId)
-                    .HasName("PK__Customer__C3905BCF48E74D67");
+                    .HasName("PK__Customer__C3905BCFC8A51449");
 
                 entity.ToTable("CustomerOrder");
 
@@ -59,19 +59,21 @@ namespace PhoenixTheatre.DataInfrastructure
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.CustomerOrders)
                     .HasForeignKey(d => d.CustomerId)
-                    .HasConstraintName("FK__CustomerO__Custo__24E777C3");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__CustomerO__Custo__58671BC9");
 
                 entity.HasOne(d => d.Theatre)
                     .WithMany(p => p.CustomerOrders)
                     .HasForeignKey(d => d.TheatreId)
-                    .HasConstraintName("FK__CustomerO__Theat__25DB9BFC");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__CustomerO__Theat__595B4002");
             });
 
             modelBuilder.Entity<Employee>(entity =>
             {
                 entity.ToTable("Employee");
 
-                entity.HasIndex(e => e.Username, "UQ__Employee__536C85E41C93A84E")
+                entity.HasIndex(e => e.Username, "UQ__Employee__536C85E49804102D")
                     .IsUnique();
 
                 entity.Property(e => e.EmployeeId).HasDefaultValueSql("(newid())");
@@ -89,13 +91,14 @@ namespace PhoenixTheatre.DataInfrastructure
                 entity.HasOne(d => d.Theatre)
                     .WithMany(p => p.Employees)
                     .HasForeignKey(d => d.TheatreId)
-                    .HasConstraintName("FK__Employee__Theatr__220B0B18");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Employee__Theatr__558AAF1E");
             });
 
             modelBuilder.Entity<FilmShowing>(entity =>
             {
                 entity.HasKey(e => e.FilmShowingsId)
-                    .HasName("PK__FilmShow__627F02E2C7BEF39A");
+                    .HasName("PK__FilmShow__627F02E2BF86225C");
 
                 entity.Property(e => e.ShowDate).HasColumnType("datetime");
 
@@ -104,18 +107,20 @@ namespace PhoenixTheatre.DataInfrastructure
                 entity.HasOne(d => d.Film)
                     .WithMany(p => p.FilmShowings)
                     .HasForeignKey(d => d.FilmId)
-                    .HasConstraintName("FK__FilmShowi__FilmI__2F650636");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__FilmShowi__FilmI__62E4AA3C");
 
                 entity.HasOne(d => d.Theatre)
                     .WithMany(p => p.FilmShowings)
                     .HasForeignKey(d => d.TheatreId)
-                    .HasConstraintName("FK__FilmShowi__Theat__2E70E1FD");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__FilmShowi__Theat__61F08603");
             });
 
             modelBuilder.Entity<InvoiceLineItem>(entity =>
             {
                 entity.HasKey(e => e.InvoiceId)
-                    .HasName("PK__InvoiceL__D796AAB574C6910C");
+                    .HasName("PK__InvoiceL__D796AAB511C7B4A7");
 
                 entity.ToTable("InvoiceLineItem");
 
@@ -124,12 +129,14 @@ namespace PhoenixTheatre.DataInfrastructure
                 entity.HasOne(d => d.Order)
                     .WithMany(p => p.InvoiceLineItems)
                     .HasForeignKey(d => d.OrderId)
-                    .HasConstraintName("FK__InvoiceLi__Order__2AA05119");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__InvoiceLi__Order__5E1FF51F");
 
                 entity.HasOne(d => d.TicketTypeNavigation)
                     .WithMany(p => p.InvoiceLineItems)
                     .HasForeignKey(d => d.TicketType)
-                    .HasConstraintName("FK__InvoiceLi__Ticke__2B947552");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__InvoiceLi__Ticke__5F141958");
             });
 
             modelBuilder.Entity<Theatre>(entity =>
@@ -142,7 +149,7 @@ namespace PhoenixTheatre.DataInfrastructure
             modelBuilder.Entity<TheatreFilm>(entity =>
             {
                 entity.HasKey(e => e.FilmId)
-                    .HasName("PK__TheatreF__6D1D217C5524855B");
+                    .HasName("PK__TheatreF__6D1D217C94CF5B76");
 
                 entity.Property(e => e.FilmDescription).HasMaxLength(300);
 
@@ -151,12 +158,16 @@ namespace PhoenixTheatre.DataInfrastructure
                 entity.Property(e => e.FilmRating).HasMaxLength(5);
 
                 entity.Property(e => e.Genre).HasMaxLength(100);
+
+                entity.Property(e => e.ImageUrl)
+                    .HasMaxLength(300)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Ticket>(entity =>
             {
                 entity.HasKey(e => e.TicketType)
-                    .HasName("PK__Tickets__9A2958D30C06F327");
+                    .HasName("PK__Tickets__9A2958D3035730DD");
 
                 entity.Property(e => e.TicketType).HasMaxLength(100);
 

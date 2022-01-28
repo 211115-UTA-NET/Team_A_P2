@@ -17,6 +17,11 @@ namespace PhoenixTheatreAPI.Services
             return await _context.FilmShowings.AsNoTracking().ToListAsync();
         }
 
+        internal async Task<IEnumerable<TheatreFilm>> GetAllTheatreFilms()
+        {
+            return await _context.TheatreFilms.AsNoTracking().ToListAsync();
+        }
+
         public async Task<CustomerOrder> GetOrderById(Guid orderId)
         {
             var order = new CustomerOrder();

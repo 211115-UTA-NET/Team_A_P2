@@ -11,8 +11,8 @@ namespace PhoenixTheatre.DataInfrastructure
         public string Username { get; set; } = null!;
         public string UserPassword { get; set; } = null!;
         public string IsManager { get; set; } = null!;
-        public int? TheatreId { get; set; }
+        public int TheatreId { get; set; }
 
-        public virtual Theatre? Theatre { get; set; }
+        public virtual Theatre Theatre { get; set; } = null!;
     }
 }
