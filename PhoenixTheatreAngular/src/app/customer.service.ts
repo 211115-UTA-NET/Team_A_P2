@@ -18,7 +18,7 @@ export class CustomerService {
   constructor(private http: HttpClient) { }
 
   getCustomers(): Observable<Customer[]> {
-    return this.http.get<Customer[]>(this.customerUrl)
+    return this.http.get<Customer[]>(this.customerUrl, this.httpOptions)
   };
 
   getCustomerByName(firstName: string, lastName: string):
