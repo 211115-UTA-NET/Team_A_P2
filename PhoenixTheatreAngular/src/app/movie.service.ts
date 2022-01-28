@@ -27,10 +27,10 @@ export class MovieService {
     return amounts;
   }
 
-   private url = "https://localhost:7291/PhoenixTheatre/movies";
+  // private url = "https://localhost:7291/PhoenixTheatre/movies";
   // private urlShowings = "https://localhost:7291/PhoenixTheatre/filmShowings";
   
- //private url = "https://phoenixtheatreapi20220128091526.azurewebsites.net/PhoenixTheatre/movies";
+ private url = "https://phoenixtheatreapi20220128091526.azurewebsites.net/PhoenixTheatre/movies";
 
 
   getMovies(): Observable<Movie[]> {
@@ -52,7 +52,6 @@ export class MovieService {
     return of(showtime);
   }
 
-  
   getTickets(): Observable<Tickets[]> {
     const tickets = of(fakeTickets);
     return tickets;
