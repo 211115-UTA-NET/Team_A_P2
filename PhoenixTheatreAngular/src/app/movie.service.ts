@@ -27,7 +27,7 @@ export class MovieService {
     return amounts;
   }
 
-  private url = "https://phoenixtheatreapionline.azurewebsites.net/movies";
+  private url = "https://phoenixtheatreapionline.azurewebsites.net/PhoenixTheatre/movies";
 
 //  private url = "https://phoenixtheatreapi.azurewebsites.net";
 
