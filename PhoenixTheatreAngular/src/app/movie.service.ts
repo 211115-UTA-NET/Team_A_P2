@@ -15,12 +15,7 @@ import { fakeTicketSelectionAmounts } from './melindas-fake-data';
   providedIn: 'root'
 })
 export class MovieService {
-  private httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': 'https://phoenixtheatre.azurewebsites.net'
-    })
-  };
+
 
   getTicketSelectionAmounts(): Observable<SelectionAmounts[]> {
     const amounts = of(fakeTicketSelectionAmounts);
@@ -34,7 +29,7 @@ export class MovieService {
 
 
   getMovies(): Observable<Movie[]> {
-    return this.http.get<Movie[]>(this.url, this.httpOptions);
+    return this.http.get<Movie[]>(this.url);
   }
 
   getMovie(id: string): Observable<Movie> {
