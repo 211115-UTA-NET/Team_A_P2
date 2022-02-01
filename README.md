@@ -32,9 +32,6 @@ To-do list:
 * Implement customer look-up feature
 
 ## Getting Started
-   
-(include git clone command)
-(include all environment setup steps)
 
 - Clone the Git repository using the command terminal command "git clone https://github.com/211115-UTA-NET/Team_A_P2"
 - Install Node.js for your specifications from https://nodejs.org/en/download/
@@ -42,9 +39,8 @@ To-do list:
 
 
 ## Usage
-- Navagate to /PhoenixTheatreAPI in the CLI
-- Use "dotnet run" to run the API
-- Navagate to /PhoenixTheatreAngular in the CLI
+
+- Navigate to /PhoenixTheatreAngular in the CLI
 - Use "ng serve --open" to run the UI
 
 ## Contributors
