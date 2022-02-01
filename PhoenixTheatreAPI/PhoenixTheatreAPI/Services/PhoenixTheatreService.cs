@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PhoenixTheatre.DataInfrastructure;
 
 namespace PhoenixTheatreAPI.Services
@@ -12,12 +13,12 @@ namespace PhoenixTheatreAPI.Services
             _context = context;
         }
 
-        public virtual async Task<IEnumerable<FilmShowing>> GetAllFilmShowings()
+        public virtual IEnumerable<FilmShowing> GetAllFilmShowings()
         {
-            return await _context.FilmShowings.AsNoTracking().ToListAsync();
+            return _context.FilmShowings.AsNoTracking().ToList();
         }
 
-        internal async Task<IEnumerable<TheatreFilm>> GetAllTheatreFilms()
+        public async Task<IEnumerable<TheatreFilm>> GetAllTheatreFilms()
         {
             return await _context.TheatreFilms.AsNoTracking().ToListAsync();
         }
@@ -36,12 +37,17 @@ namespace PhoenixTheatreAPI.Services
             return order;
         }
 
-        public virtual async Task<Customer> GetCustomerByName(string firstName, string lastName)
+        internal async Task<IEnumerable<Ticket>> GetTickets()
+        {
+            return await _context.Tickets.AsNoTracking().ToListAsync();
+        }
+
+        public virtual Customer GetCustomerByName(string firstName, string lastName)
         {
             var customer = new Customer();
             try
             {
-                customer = await _context.Customers.Where(x => x.FirstName == firstName && x.LastName == lastName).SingleOrDefaultAsync();
+                customer = _context.Customers.Where(x => x.FirstName == firstName && x.LastName == lastName).SingleOrDefault();
             }
             catch (Exception ex)
             {
@@ -64,12 +70,12 @@ namespace PhoenixTheatreAPI.Services
             return customer;
         }
 
-        public virtual async Task<Employee> GetEmployeeByName(string firstName, string lastName)
+        public virtual Employee GetEmployeeByName(string firstName, string lastName)
         {
             var employee = new Employee();
             try
             {
-                employee = await _context.Employees.Where(x => x.FirstName == firstName && x.LastName == lastName).SingleOrDefaultAsync();
+                employee = _context.Employees.Where(x => x.FirstName == firstName && x.LastName == lastName).SingleOrDefault();
             }
             catch (Exception ex)
             {

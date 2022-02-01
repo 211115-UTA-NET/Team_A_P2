@@ -9,7 +9,7 @@ namespace PhoenixTheatre.DataInfrastructure
         public int TheatreId { get; set; }
         public int FilmId { get; set; }
         public DateTime ShowDate { get; set; }
-        public DateTime Showtime { get; set; }
+        public string Showtime { get; set; } = null!;
         public int TicketsAvailable { get; set; }
 
         public virtual TheatreFilm Film { get; set; } = null!;
