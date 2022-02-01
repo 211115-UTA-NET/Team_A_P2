@@ -39,7 +39,6 @@ To-do list:
 - Clone the Git repository using the command terminal command "git clone https://github.com/211115-UTA-NET/Team_A_P2"
 - Install Node.js for your specifications from https://nodejs.org/en/download/
 - Install Node Package Manager (npm) from the command terminal using the "npm install -g npm" command
-- 
 
 
 ## Usage
