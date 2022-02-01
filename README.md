@@ -52,6 +52,3 @@ To-do list:
 - Edward Cicio
 - Travis Boskowitz
 
-## License
-
-This project uses the following license: [<license_name>](<link>).
