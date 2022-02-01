@@ -42,9 +42,10 @@ To-do list:
 
 
 ## Usage
-
-- Navagete to /PhoenixTheatreAngular
-- Use ng serve --open to run the app
+- Navagate to /PhoenixTheatreAPI in the CLI
+- Use "dotnet run" to run the API
+- Navagate to /PhoenixTheatreAngular in the CLI
+- Use "ng serve --open" to run the UI
 
 ## Contributors
 
