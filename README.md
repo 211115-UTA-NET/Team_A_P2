@@ -2,7 +2,7 @@
 
 ## Project Description
 
-Here goes your awesome project description!
+Phoenix Theatre is an app created for the owners of small movie theatres and was designed for ease of use. The goal of this single page application was to allow drop-in functionality for the viewing of available showings and ticket ordering. The app allows users to view film showings, read descriptions and film content ratings, as well as view pricing for the diferent kinds of tickets available (ie. children, adult, senior, etc). The app features an Angular frontend, supported by a REST API service.
 
 ## Technologies Used
 
