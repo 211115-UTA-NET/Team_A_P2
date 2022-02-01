@@ -22,7 +22,7 @@ Phoenix Theatre is an app created for the owners of small movie theatres and was
 
 ## Features
 
-List of features ready and TODOs for future development
+Features:
 * User interactive single page application
 * Ability to view options for pricing of movie tickets
 * Integration of Angular app with REST API
